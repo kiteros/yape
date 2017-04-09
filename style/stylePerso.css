@@ -1,0 +1,76 @@
+body{
+  background-color: #e1e5ed;
+}
+
+.content {
+    margin-left: 250px;
+}
+.side {
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: white;
+    width: 200px;
+    padding: 0px;
+
+}
+
+.my_popup{
+  border-radius: 5px;
+  background-color: #e8ebef;
+}
+
+#fadeandscale {
+  transform: scale(0.8);
+}
+.popup_visible #fadeandscale {
+  transform: scale(1);
+}
+
+#logo{
+  height : 200px;
+}
+
+#hints{
+  visibility: hidden;
+}
+/* style du bloc ul */
+.menu-vertical {
+  margin-top: 100px;
+  width: 200px; /* optionnel, c'est pour la démo */
+  list-style: none; /* supprime les puces de liste */
+  padding: 0px; /* on fait un peu de place autour des liens */
+  margin: 0; /* on annule les marges */
+  background: #F2F2F2;
+}
+
+/* styles des liens et éléments de liste */
+.mv-item,
+.mv-item a {
+  /* les liens et item deviennent des blocs */
+  /* suffit théoriquement à virer les puces de liste */
+  display: block;
+}
+
+/* styles des liens */
+.mv-item a {
+  margin: 1px 0; /* espace les liens d'1 px */
+  padding: 8px 20px; /* marges internes pour aérer */
+  color: #666;
+  background: #FFF;
+  text-decoration: none; /* on vire le soulignement */
+
+  /* on définit la transition pour les navigateurs */
+  -webkit-transition: all .3s; /* Chrome/Safari */
+  -moz-transition: all .3s; /* Firefox (plus trop nécessaire) */
+  transition: all .3s; /* syntaxe officielle */
+}
+
+/* styles changeants au survol et focus */
+.mv-item a:hover,
+.mv-item a:focus {
+  background: #1ABC9C;
+  color: #FFF;
+  padding-left: 30px; /* décalage du contenu de 10px vers la droite (30-20 = 10) */
+}

@@ -1,0 +1,500 @@
+*{
+  margin : 0;
+}
+
+header{
+  
+}
+
+#leftContainer{
+  width : 100%;
+  display : flex;
+  justify-content: space-between;
+}
+
+#headperso{
+  margin-top: 18px;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: flex-end;
+  vertical-align: middle;
+}
+
+#leftPart{
+  display: inline-block;
+}
+
+#rightPart{
+  display: inline-block;
+  vertical-align: top;
+  margin-left : 20px;
+}
+
+#booksPorgression{
+  display: inline-block;
+  vertical-align: top;
+  margin-right : 75px;
+  width : 700px;
+  height : 500px;
+}
+
+#headpublic{
+  padding-top: 18px;
+  padding-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  vertical-align: middle;
+}
+
+.buttonLike{
+  background-color : transparent;
+}
+
+.topCont{
+  display: inline-block;
+}
+
+.nameLecteur{
+  display : inline-block;
+  vertical-align: top;
+  margin-top: 15px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+#left{
+  margin-left : 20px;
+}
+
+.buttonLike2{
+  width : 50px;
+  margin-left: 90%;
+  display : flex;
+  justify-content: space-around;
+}
+
+.nbLike{
+  margin-top:50%;
+  margin-right: 10px;
+}
+
+
+.bookImage{
+  width : 30%;
+  margin : 50px;
+}
+
+.inProfil{
+  margin-left: 20px;
+  margin-right: 20px;
+
+}
+
+.inProfil2{
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top : 15px;
+}
+
+.buttonPic{
+  text-decoration: none;
+  background-color: transparent;
+  display: inline-block;
+  border: none;
+}
+
+
+
+#profilPic{
+  width : 200px;
+  height : 50px;
+  display: flex;
+  justify-content: center;
+  margin-right: 10%;
+}
+
+.bigNumber{
+  font-size: 5em;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    padding-right : 25px;
+    padding-left : 25px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+#feed{
+  width : 50%;
+  margin-left : auto;
+  margin-right: auto;
+  text-align: justify;
+}
+
+#searchBar{
+  width : 50%;
+}
+
+.smallSearch{
+  width : 50%;
+}
+
+a{
+  text-decoration: none;
+  color : #3B3838;
+}
+
+a:hover{
+  color : #DB6060;
+}
+
+#hints{
+  padding : 10px;
+  display : block;
+  text-align: center;
+  font-size: 2em;
+  color : black;
+  text-align: center;
+}
+
+.whiteSeparator{
+  background-color: #777a7f;
+}
+
+#hints_float{
+  position: absolute;
+  background-color: #edeeef;
+  color: black;
+  padding: 0;
+}
+
+input[type=text] {
+    width: 50%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('../images/searchicon.png');
+    background-position: 10px 10px;
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
+
+.connect{
+  width : 350px;
+  display : flex;
+  justify-content: space-around;
+}
+
+.buttonSignUp {
+	background-color:#599bb3;
+  -moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border : none;
+
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:13px 32px;
+	text-decoration:none;
+	text-shadow:0px 0px 0px #3d768a;
+}
+.buttonSignUp:hover {
+	background-color:#408c99;
+}
+.buttonSignUp:active {
+	position:relative;
+	top:1px;
+}
+
+.buttonSignIn {
+  margin-left: 20px;
+	background-color:#f44842;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border : none;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:13px 32px;
+	text-decoration:none;
+	text-shadow:0px 0px 0px #3d768a;
+}
+.buttonSignIn:hover {
+	background-color:#f76560;
+}
+.buttonSignIn:active {
+	position:relative;
+	top:1px;
+}
+
+.buttonAddFriend {
+	background-color:#7289ad;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border : none;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:13px 32px;
+	text-decoration:none;
+	text-shadow:0px 0px 0px #3d768a;
+}
+.buttonAddFriend:hover {
+	background-color:#687b9b;
+}
+.buttonAddFriend:active {
+	position:relative;
+	top:1px;
+}
+
+.parallax-window {
+    min-height: 800px;
+    background: transparent;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.cd-top {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  position: fixed;
+  bottom: 40px;
+  right: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  /* image replacement properties */
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  background: rgba(232, 98, 86, 0.8) url(../images/cd-top-arrow.svg) no-repeat center 50%;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+  -moz-transition: opacity .3s 0s, visibility 0s .3s;
+  transition: opacity .3s 0s, visibility 0s .3s;
+}
+.cd-top.cd-is-visible, .cd-top.cd-fade-out, .no-touch .cd-top:hover {
+  -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+  -moz-transition: opacity .3s 0s, visibility 0s 0s;
+  transition: opacity .3s 0s, visibility 0s 0s;
+}
+.cd-top.cd-is-visible {
+  /* the button becomes visible */
+  visibility: visible;
+  opacity: 1;
+}
+.cd-top.cd-fade-out {
+  /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+  opacity: .5;
+}
+.no-touch .cd-top:hover {
+  background-color: #e86256;
+  opacity: 1;
+}
+@media only screen and (min-width: 768px) {
+  .cd-top {
+    right: 20px;
+    bottom: 20px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .cd-top {
+    height: 60px;
+    width: 60px;
+    right: 30px;
+    bottom: 30px;
+  }
+}
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+// ------------- MIXINS ------------- //
+@mixin transition($time, $property: all, $easing: ease-in) {
+    transition: $property $time $easing;
+}
+
+// ------------- VARIABLES ------------- //
+$parallax-offset: 30vh;
+$content-offset: 40vh;
+$transition-speed: 1.2s;
+$slide-number: 3;
+
+html, body {
+  overflow: hidden;
+}
+
+.background {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow: hidden;
+  will-change: transform;
+  backface-visibility: hidden;
+  height: 100vh + $parallax-offset;
+  position: fixed;
+  width: 100%;
+  transform: translateY($parallax-offset);
+  @include transition($transition-speed, all, cubic-bezier(0.22, 0.44, 0, 1));
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.3);
+  }
+  &:first-child {
+    background-image: url('http://s8.postimg.org/lf2udl5np/4_Aihmii.jpg');
+    transform: translateY(-$parallax-offset / 2);
+    .content-wrapper {
+      transform: translateY($parallax-offset /2);
+    }
+  }
+  &:nth-child(2) {
+    background-image: url('http://s8.postimg.org/ow4wgk4px/ugqti_Lg.jpg');
+  }
+  &:nth-child(3) {
+    background-image: url('http://s8.postimg.org/grwsbtiat/x_ZMOBTj.jpg');
+  }
+}
+
+/* Set stacking context of slides */
+@for $i from 1 to ($slide-number + 1) {
+    .background:nth-child(#{$i}) {
+        z-index: ($slide-number + 1) - $i;
+    }
+}
+
+.content {
+  &-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-flow: column nowrap;
+  color: #fff;
+  font-family: Montserrat;
+  text-transform: uppercase;
+  transform: translateY($content-offset);
+  will-change: transform;
+  backface-visibility: hidden;
+  @include transition($transition-speed + .5, all, cubic-bezier(0.22, 0.44, 0, 1));
+  }
+  &-title {
+    font-size: 12vh;
+    line-height: 1.4;
+  }
+}
+
+// ------------- SET TRANSFORM VALUES ------------- //
+
+.background.up-scroll {
+  transform: translate3d(0,-$parallax-offset / 2,0);
+  .content-wrapper {
+    transform: translateY($parallax-offset / 2);
+  }
+  + .background {
+    transform: translate3d(0,$parallax-offset,0);
+      .content-wrapper {
+        transform: translateY($parallax-offset);
+      }
+    }
+}
+
+.background.down-scroll {
+  transform: translate3d(0,-(100vh + $parallax-offset),0);
+  .content-wrapper {
+    transform: translateY($content-offset);
+  }
+  + .background:not(.down-scroll) {
+    transform: translate3d(0,-$parallax-offset / 2,0);
+      .content-wrapper {
+        transform: translateY($parallax-offset / 2);
+      }
+  }
+}
