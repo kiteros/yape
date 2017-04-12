@@ -19,7 +19,7 @@
     <div class="dropdown" style="display:inline-block;" class="inProfil">
       <button class="dropbtn"><?php echo $_SESSION['fname']; ?></button>
       <div class="dropdown-content">
-        <a href="#">Parametres</a>
+        <a href="params.php">Parametres</a>
         <a href="../actions/disconnet.php">Déconnecter</a>
       </div>
     </div>
