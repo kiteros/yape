@@ -143,7 +143,7 @@
     									var imageMini = document.createElement("img");
     									imageMini.scr = res[3 * x + 2];
     									var li2 = document.createElement("a");
-    									li2.href = "actions/showBookAndPeople.php?book=" + res[3 * x + 1];
+    									li2.href = "perso/addBook.php?stay=ok&link=" + res[3 * x + 1];
     									var br = document.createElement("br");
     									var text2 = document.createTextNode(res[3 * x]);
     									li2.appendChild(text2);
@@ -181,59 +181,12 @@
 
     	<script>
     		function showSignUp(){
-    			/*vex.dialog.open({
-    			    message: 'Enter your username and password:',
-    			    input: [
-    			        '<input name="username" type="text" placeholder="Username" required />',
-    			        '<input name="password" type="password" placeholder="Password" required />',
-    							'<input name="password2" type="password" placeholder="Type password again" required />',
-    							'<label><input name="keeplog" type="checkbox"  value="k">Keep me Logged in</label>'
-    			    ].join(''),
-    			    buttons: [
-    			        $.extend({}, vex.dialog.buttons.YES, { text: 'Sign up' }),
-    			        $.extend({}, vex.dialog.buttons.NO, { text: 'Back' })
-    			    ],
-    			    callback: function (data) {
-    			        if (!data) {
-    			            console.log('Cancelled')
-    			        } else {
-    								if(data.password == data.password2){
-    									window.location.replace("actions/signup.php?name=" + data.username + "&password=" + data.password + "&keeplog="  + data.keeplog);
-    								}else{
-    									vex.dialog.alert('Passwords are differents')
-    								}
 
-    			        }
-    			    }
-    			})*/
           location.replace("manag/signup.php");
     		}
 
     		function showSignIn(error){
-    			/*vex.dialog.open({
-    			    message: 'Enter your username and password to connect:',
-    			    input: [
-    			        '<input name="username" type="text" placeholder="Username" required />',
-    			        '<input name="password" type="password" placeholder="Password" required />',
-    							'<label><input type="checkbox" name="keeplog" value="k">Keep me Logged in</label>'
-    			    ].join(''),
-    			    buttons: [
-    			        $.extend({}, vex.dialog.buttons.YES, { text: 'Sign in' }),
-    			        $.extend({}, vex.dialog.buttons.NO, { text: 'Back' })
-    			    ],
-    			    callback: function (data) {
-    			        if (!data) {
-    			            console.log('Cancelled')
-    			        } else {
-    								if(data.keeplog == 'k'){
-    									window.location.replace("actions/signin.php?name=" + data.username + "&password=" + data.password + "&keeplog=" + data.keeplog);
-    								}else{
-                      window.location.replace("actions/signin.php?name=" + data.username + "&password=" + data.password);
-                    }
 
-    			        }
-    			    }
-    			})*/
           location.replace("manag/signin.php");
     		}
 

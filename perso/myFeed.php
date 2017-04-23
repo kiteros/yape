@@ -63,25 +63,6 @@
 
    <script>
    function showSignIn(){
-     /*vex.dialog.open({
-         message: 'Enter your username and password to connect:',
-         input: [
-             '<input name="username" type="text" placeholder="Username" required />',
-             '<input name="password" type="password" placeholder="Password" required />'
-         ].join(''),
-         buttons: [
-             $.extend({}, vex.dialog.buttons.YES, { text: 'Sign in' }),
-             $.extend({}, vex.dialog.buttons.NO, { text: 'Back' })
-         ],
-         callback: function (data) {
-             if (!data) {
-                 console.log('Cancelled')
-             } else {
-
-               window.location.replace("../actions/signin.php?name=" + data.username + "&password=" + data.password + "&connectType=notconnected");
-             }
-         }
-     })*/
      location.replace("manag/signup.php");
    }
     </script>
@@ -195,7 +176,7 @@
                          $nbResult2 = $getF2->rowCount();
                          if($nbResult > 0 OR $nbResult2 > 0){
                            ?>
-                           <p>Suivi</p>
+                           <center><h3 style="color: orange;">Suivi</h3></center>
                            <?php
                          }else{
                            ?>

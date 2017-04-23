@@ -1,5 +1,7 @@
 <?php
-
+function stripAccents($stripAccents){
+  return strtr($stripAccents,'àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ','aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
+}
 include("../include/bdd.php");
 if(isset($_POST['fname']) AND isset($_POST['email'])){
   if($_POST['password1'] != $_POST['password2']){
@@ -15,8 +17,8 @@ if(isset($_POST['fname']) AND isset($_POST['email'])){
       'pass' => $password,
       'img' => '../images/user.png',
       'mdt' => 'Hey! I am using Yape!',
-      'fn' => $_POST['fname'],
-      'l' => $_POST['lname']
+      'fn' => stripAccents($_POST['fname']),
+      'l' => stripAccents($_POST['lname'])
   	));
 
     $SearchUser = $bdd->prepare('SELECT * FROM yape_users WHERE email = :name AND password = :pass');

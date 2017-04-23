@@ -50,6 +50,7 @@
        <link rel="stylesheet" href="../style/style.css" />
        <link rel="stylesheet" href="../style/stylePerso.css" />
        <link href='../style/form.css' rel='stylesheet' type='text/css'>
+       <link rel="stylesheet" href="../style/sign.css" />
 	    <title>Yape - My page</title>
 	</head>
 
@@ -76,26 +77,7 @@
         <!-- content -->
         <div>
           <br/><br/>
-          <center><h2>Changer le mot de passe</h2></center>
-          </center><form action="../actions/signin.php" method="post" id="form2" data-parsley-validate="">
-            <ul class="form-style-1">
-              <li>
-
-                  <input type="text" name="email" class="field-long" placeholder="Adresse Email" data-parsley-trigger="change" required="" autofocus/>
-              </li>
-
-              <li>
-
-                  <input type="password" name="password" class="field-long" placeholder="Password" required=""/>
-              </li>
-              <li>
-                  <label><input name="keeplog" type="checkbox" value="k">Keep me Logged in</label>
-              </li>
-              <li>
-                  <input type="submit" value="Se connecter" />
-              </li>
-          </ul>
-          </form></center>
+          <center><a href="../params/changePass.php" id="creerCompte">Changer le mot de passe</a></center>
         </div>
         <br/><br/>
 

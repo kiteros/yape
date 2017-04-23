@@ -111,55 +111,76 @@
 
 <script>
 
+var isLoading = false;
 function ontouch(str){
+  if(!isLoading){
+
+    $('#hints_float').empty();
+    $('#hints_float').append('<div style=\"display: inline-block;\" id=\"loading2\"></div>');
+    isLoading = true;
+    $('#loading2').append('<center id="loading"><div><img width="30px" height="30px" src="../images/Loading_icon.gif" /></div></center>');
+
+  }
   var element = document.getElementById("hints_float");
     if (str.length == 0) {
 
-      element.innerHTML = "";
+      element.innerHTML = "<div style=\"display: inline-block;\" id=\"loading2\"></div>";
       element.style.visibility = 'hidden';
+      $("#loading").remove();
+      isLoading = false;
       return;
     } else {
 
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-              document.getElementById("hints_float").innerHTML = "";
-              document.getElementById("hints_float").style.visibility = 'visible';
-              var x = 0;
-              var res = this.responseText.split("DEP")[0].split("SEP");
-              $('#hints_float').append('<div class="whiteSeparator">Books</div>');
-              while(x < 4){
-                var imageMini = document.createElement("img");
-                imageMini.scr = res[3 * x + 2];
-                var li2 = document.createElement("a");
-                li2.href = "../actions/showBookAndPeople.php?book=" + res[3 * x + 1];
-                var br = document.createElement("br");
-                var text2 = document.createTextNode(res[3 * x]);
-                li2.appendChild(text2);
-                li2.appendChild(imageMini);
-                var element2 = document.getElementById("hints_float");
-                element2.appendChild(li2);
-                element2.appendChild(br);
-                x++;
-              }
-              $('#hints_float').append('<div class="whiteSeparator">People</div>');
-              var res2 = this.responseText.split("DEP")[1].split("SEP");
-              x = 0;
-              while(x < 4){
-                var li3 = document.createElement("a");
-                li3.href = "../perso/myFeed.php?id=" + res2[2 * x + 1];
-                var br = document.createElement("br");
-                var text2 = document.createTextNode(res2[2 * x]);
-                li3.appendChild(text2);
-                var element2 = document.getElementById("hints_float");
-                element2.appendChild(li3);
-                element2.appendChild(br);
-                x++;
-              }
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            $("#loading").remove();
+            isLoading = false;
+            document.getElementById("hints_float").innerHTML = "";
+            document.getElementById("hints_float").style.visibility = 'visible';
+            var x = 0;
+            var res = this.responseText.split("DEP")[0].split("SEP");
+            var nbPeople = this.responseText.split("XEP")[1];
+
+            $('#hints_float').append('<div class="whiteSeparator">Books</div>');
+            while(x < 4){
+              var imageMini = document.createElement("img");
+              imageMini.scr = res[3 * x + 2];
+              var li2 = document.createElement("a");
+              li2.href = "../perso/addBook.php?link=" + res[3 * x + 1];
+              var br = document.createElement("br");
+              var text2 = document.createTextNode(res[3 * x]);
+              li2.appendChild(text2);
+              li2.appendChild(imageMini);
+              var element2 = document.getElementById("hints_float");
+              element2.appendChild(li2);
+              element2.appendChild(br);
+              x++;
             }
-        };
-        xmlhttp.open("GET", "../actions/liveSearchAll.php?q=" + str, true);
-        xmlhttp.send();
+            $('#hints_float').append('<div class="whiteSeparator">People</div>');
+            var res2 = this.responseText.split("DEP")[1].split("SEP");
+            x = 0;
+
+            if(nbPeople >= 4){
+              nbPeople = 4;
+            }
+            while(x < nbPeople){
+              var li3 = document.createElement("a");
+              li3.href = "../perso/myFeed.php?id=" + res2[2 * x + 1];
+              var br = document.createElement("br");
+              var text2 = document.createTextNode(res2[2 * x]);
+              li3.appendChild(text2);
+              var element2 = document.getElementById("hints_float");
+              element2.appendChild(li3);
+              element2.appendChild(br);
+              x++;
+            }
+          }
+      };
+      xmlhttp.open("GET", "../actions/liveSearchAll.php?q=" + str, true);
+      xmlhttp.send();
+
+
     }
 }
 </script>

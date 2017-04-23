@@ -40,7 +40,7 @@
 	<script src="../js/croppie.js"></script>
 
 <?php
-if($id == ''){
-	header('Location: ../actions/disconnet.php');
+if($id == '' and !isset($_GET['stay'])){
+	header('Location: ../manag/signin.php');
 }
  ?>

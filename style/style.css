@@ -16,7 +16,7 @@ header{
   margin-top: 18px;
   margin-bottom: 18px;
   display: flex;
-  justify-: flex-end;
+  justify-content: flex-end;
   vertical-align: middle;
 }
 

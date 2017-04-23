@@ -3,6 +3,17 @@
   margin-bottom: 20px;
 }
 
+#creerCompte{
+  text-decoration: none;
+  color : red;
+  float : right;
+}
+
+#creerCompte:hover{
+  text-decoration: underline;
+
+}
+
 .form-style-1 {
     margin:200px auto;
     max-width: 600px;

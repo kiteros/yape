@@ -27,7 +27,7 @@
             <label><input name="keeplog" type="checkbox" value="k">Keep me Logged in</label>
         </li>
         <li>
-            <input type="submit" value="Se connecter" />
+            <p><input type="submit" value="Se connecter" /><a href="signup.php" id="creerCompte">Creer un compte</a></p>
         </li>
     </ul>
     </form></center>
