@@ -15,4 +15,4 @@
     <li class="mv-item"><a href="addBook.php">Mes livres</a></li>
     <li class="mv-item"><a href="recommendations.php">Recommendations</a></li>
   </ul>
-</div>
+</div> 

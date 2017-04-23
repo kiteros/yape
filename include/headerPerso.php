@@ -132,7 +132,7 @@ function ontouch(str){
                 var imageMini = document.createElement("img");
                 imageMini.scr = res[3 * x + 2];
                 var li2 = document.createElement("a");
-                li2.href = "../action/showBookAndPeople.php?book=" + res[3 * x + 1];
+                li2.href = "../actions/showBookAndPeople.php?book=" + res[3 * x + 1];
                 var br = document.createElement("br");
                 var text2 = document.createTextNode(res[3 * x]);
                 li2.appendChild(text2);

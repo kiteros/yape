@@ -21,6 +21,9 @@
     $donnesUser = $SearchUser->fetch();
     $email = $donnesUser['email'];
     $thumb = $donnesUser['local_profil'];
+    $fName = $donnesUser['fname'];
+    $lName = $donnesUser['lname'];
+
     if($thumb == '../images/user.png'){
       $bigPic = $thumb;
     }else{
@@ -33,6 +36,8 @@
     $email = $_SESSION['email'];
     $thumb = $_SESSION['profil'];
     $bigPic = $_SESSION['bigPic'];
+    $fName = $_SESSION['fname'];
+    $lName = $_SESSION['lname'];
   }
 
   ?>
@@ -120,7 +125,7 @@
               $followerer = $datafollower['follower'];
 
 
-              echo '<br/><h2>' . $_SESSION['fname'] . " " . $_SESSION['lname'] . '</h2><br/>';
+              echo '<br/><h2>' . $fName . " " . $lName . '</h2><br/>';
               ?>
 
                 <div id="leftContainer">

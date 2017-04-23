@@ -7,7 +7,7 @@
    echo 'done';
    $_SESSION['login_name'] = $_COOKIE['login_name'];
    $_SESSION['login_pass'] = $_COOKIE['login_pass'];
-	 header("Location: actions/signin.php");
+	 header("Location: actions/autosignin.php");
 
  }
  include('include/allStrings.php');
@@ -255,33 +255,62 @@
     	</script>
 
 	    <section class="page2">
-        <div class="content_">
+        <div>
     			<br/>
 
     			<center><h2><?php echo $string[$_GET['lang']]['index']['p1']; ?></h2></center><br/>
     			<center><p style="text-align:justify; width : 60%"><?php echo $string[$_GET['lang']]['index']['p2']; ?></p></center><br/>
-    				<?php
-    					include('include/bdd.php');
 
-    					$select = $bdd->prepare('SELECT * FROM yape_bookday WHERE id = :id');
-    					$select->execute(array(
-    						'id' => 1
-    					));
-    					$dataDay = $select->fetch();
-    					$bookLink2 = $dataDay['book_id'];
-    					echo '<center><br/><br/><h2>Livre du jour</h2></center>';
-    					echo '<br/><br/>';
+        <div>
+      </section>
+
+      <section class="page3">
+        <div style="display:flex; justify-content: space-around; margin-top: 10%;">
+          <div>
+            <?php
+              include('include/bdd.php');
+
+              $select = $bdd->prepare('SELECT * FROM yape_bookday WHERE id = :id');
+              $select->execute(array(
+                'id' => 1
+              ));
+              $dataDay = $select->fetch();
+              $bookLink2 = $dataDay['book_id'];
+              echo '<center><br/><br/><h2>Livre du jour</h2></center>';
+              echo '<br/><br/>';
               $html2 = file_get_contents($bookLink2);
               $obj2 = json_decode($html2, true);
               echo '<center><h2>' . $obj2['volumeInfo']['title'] . '</h2></center><br/>';
               echo '<center><img width="250px" src="' .  $obj2['volumeInfo']['imageLinks']['medium'] . '" /></center><br/>';
               echo '<center><p>Nombre de pages : ' . $obj2['volumeInfo']['pageCount'] . '</p></center><br/><br/>';
 
-    				 ?>
-        <div>
+             ?>
+          </div>
+          <div>
+            <?php
+              include('include/bdd.php');
+
+              $select = $bdd->prepare('SELECT * FROM yape_bookday WHERE id = :id');
+              $select->execute(array(
+                'id' => 1
+              ));
+              $dataDay = $select->fetch();
+              $bookLink2 = $dataDay['book_id'];
+              echo '<center><br/><br/><h2>Lecteur du Jour</h2></center>';
+              echo '<br/><br/>';
+              $html2 = file_get_contents($bookLink2);
+              $obj2 = json_decode($html2, true);
+              echo '<center><h2>' . $obj2['volumeInfo']['title'] . '</h2></center><br/>';
+              echo '<center><img width="250px" src="' .  $obj2['volumeInfo']['imageLinks']['medium'] . '" /></center><br/>';
+              echo '<center><p>Nombre de pages : ' . $obj2['volumeInfo']['pageCount'] . '</p></center><br/><br/>';
+
+             ?>
+          </div>
+        </div>
+
       </section>
 
-	    <section class="page3">
+	    <section class="page4">
         <div class="content_" style="margin-top : 10%;">
     			<br/><center><h3>Rejoignez les</h3></center>
           <?php

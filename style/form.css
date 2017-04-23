@@ -125,7 +125,7 @@
     }
 
     .main section.page1{
-      background-image: url('images/book.jpg');
+      background-image: url('../images/book.jpg');
       background-size: cover;
     }
 
