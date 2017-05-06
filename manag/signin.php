@@ -4,14 +4,14 @@
 
 	<head>
 		<link rel="shortcut icon" href="../images/yape_logo.png"/>
-    <script src="parsley.min.js"></script>
+    <script src="../js/parsley.min.js"></script>
     <link rel="stylesheet" href="../style/sign.css" />
 
   </head>
 
   <body>
 	</center><form action="../actions/signin.php" method="post" id="form2" data-parsley-validate="">
-      <ul class="form-style-1">
+      <ul class="formshape" id="form-style-1">
 				<center><li><img src="../images/yape_logo.png" width="100px" width="100px"><span id="yape_title">Yape - Login</span></li></center>
 				<br/>
         <li>

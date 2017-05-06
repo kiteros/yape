@@ -1,3 +1,4 @@
+
 #yape_title{
   font-size : 3em;
   margin-bottom: 20px;
@@ -14,33 +15,42 @@
 
 }
 
-.form-style-1 {
+#form-style-1 {
     margin:200px auto;
     max-width: 600px;
     padding: 20px 15px 12px 25px;
     font: 15px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
-.form-style-1 li {
+#form-style-2 {
+    margin-left: :200px;
+    margin-right: :200px;
+    margin-top: :20px;
+    margin-bottom: :20px;
+    max-width: 600px;
+    padding: 20px 15px 12px 25px;
+    font: 15px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+.formshape li {
     padding: 0;
     display: block;
     list-style: none;
     margin: 10px 0 0 0;
 }
-.form-style-1 label{
+.formshape label{
     margin:0 0 3px 0;
     padding:0px;
     display:block;
     font-weight: bold;
 }
-.form-style-1 input[type=text],
-.form-style-1 input[type=date],
-.form-style-1 input[type=datetime],
-.form-style-1 input[type=number],
-.form-style-1 input[type=search],
-.form-style-1 input[type=time],
-.form-style-1 input[type=url],
-.form-style-1 input[type=password],
-.form-style-1 input[type=email],
+.formshape input[type=text],
+.formshape input[type=date],
+.formshape input[type=datetime],
+.formshape input[type=number],
+.formshape input[type=search],
+.formshape input[type=time],
+.formshape input[type=url],
+.formshape input[type=password],
+.formshape input[type=email],
 textarea,
 select{
     box-sizing: border-box;
@@ -55,47 +65,47 @@ select{
     -o-transition: all 0.30s ease-in-out;
     outline: none;
 }
-.form-style-1 input[type=text]:focus,
-.form-style-1 input[type=date]:focus,
-.form-style-1 input[type=datetime]:focus,
-.form-style-1 input[type=number]:focus,
-.form-style-1 input[type=password]:focus,
-.form-style-1 input[type=search]:focus,
-.form-style-1 input[type=time]:focus,
-.form-style-1 input[type=url]:focus,
-.form-style-1 input[type=email]:focus,
-.form-style-1 textarea:focus,
-.form-style-1 select:focus{
+.formshape input[type=text]:focus,
+.formshape input[type=date]:focus,
+.formshape input[type=datetime]:focus,
+.formshape input[type=number]:focus,
+.formshape input[type=password]:focus,
+.formshape input[type=search]:focus,
+.formshape input[type=time]:focus,
+.formshape input[type=url]:focus,
+.formshape input[type=email]:focus,
+.formshape textarea:focus,
+.formshape select:focus{
     -moz-box-shadow: 0 0 8px #88D5E9;
     -webkit-box-shadow: 0 0 8px #88D5E9;
     box-shadow: 0 0 8px #88D5E9;
     border: 1px solid #88D5E9;
 }
-.form-style-1 .field-divided{
+.formshape .field-divided{
     width: 49%;
 }
 
-.form-style-1 .field-long{
+.formshape .field-long{
     width: 100%;
 }
-.form-style-1 .field-select{
+.formshape .field-select{
     width: 100%;
 }
-.form-style-1 .field-textarea{
+.formshape .field-textarea{
     height: 100px;
 }
-.form-style-1 input[type=submit], .form-style-1 input[type=button]{
+.formshape input[type=submit], .formshape input[type=button]{
     background: #4B99AD;
     padding: 8px 15px 8px 15px;
     border: none;
     color: #fff;
 }
-.form-style-1 input[type=submit]:hover, .form-style-1 input[type=button]:hover{
+.formshape input[type=submit]:hover, .formshape input[type=button]:hover{
     background: #4691A4;
     box-shadow:none;
     -moz-box-shadow:none;
     -webkit-box-shadow:none;
 }
-.form-style-1 .required{
+.formshape .required{
     color:red;
 }

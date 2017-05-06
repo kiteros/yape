@@ -11,7 +11,7 @@
 
   <body>
 	</center><form action="../actions/signup.php" method="post" id="form2" data-parsley-validate="">
-      <ul class="form-style-1">
+      <ul class="formshape" id="form-style-1">
 				<center><li><img src="../images/yape_logo.png" width="100px" width="100px"><span id="yape_title">Yape - SignUp</span></li></center>
 				<br/>
 				<li><input type="text" name="fname" class="field-divided" placeholder="First name" autofocus/>&nbsp;<input type="text" name="lname" class="field-divided" placeholder="Last name" /></li>

@@ -1,5 +1,12 @@
+@font-face {
+    font-family: 'lemon';
+    src: url('font/LemonMilk.eot') format('eot');
+}
+
+
 *{
   margin : 0;
+  font-family: 'lemon', Arial, serif;
 }
 
 header{
@@ -211,7 +218,7 @@ a:hover{
   padding: 0;
 }
 
-input[type=text] {
+input[type=text]:not(.field-divided):not(.field-long) {
     width: 50%;
     box-sizing: border-box;
     border: 2px solid #ccc;
@@ -227,7 +234,7 @@ input[type=text] {
     transition: width 0.4s ease-in-out;
 }
 
-input[type=text]:focus {
+input[type=text]:not(.field-divided):not(.field-long):focus {
     width: 100%;
 }
 
@@ -262,7 +269,7 @@ input[type=text]:focus {
 }
 
 .buttonSignIn {
-  margin-left: 20px;
+  margin-left: 10px;
 	background-color:#f44842;
 	-moz-border-radius:4px;
 	-webkit-border-radius:4px;

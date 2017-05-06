@@ -2,6 +2,12 @@
   session_start();
  //Check the cookie
 
+ function after ($this, $inthat)
+ {
+     if (!is_bool(strpos($inthat, $this)))
+     return substr($inthat, strpos($inthat,$this)+strlen($this));
+ };
+
  if(isset($_COOKIE['login_name']) AND isset($_COOKIE['login_pass'])){
 	 //login
    echo 'done';
@@ -78,8 +84,8 @@
           if(!isset($_SESSION['id'])){
            ?>
       	  <div class="connect">
-      	    <button id="myBtn" class="buttonSignUp" onclick="showSignUp()">Sign Up</button>
-      	    <button id="myBtn" class="buttonSignIn" onclick="showSignIn()">Sign In</button>
+      	    <button id="myBtn" class="buttonSignUp" onclick="showSignUp()"><?php echo $string[$_GET['lang']]['index']['signup']; ?></button>
+      	    <button id="myBtn" class="buttonSignIn" onclick="showSignIn()"><?php echo $string[$_GET['lang']]['index']['signin']; ?></button>
       	  </div>
           <?php
         }else{
@@ -208,11 +214,34 @@
     	</script>
 
 	    <section class="page2">
-        <div>
-    			<br/>
+        <style>
+          .foo{
+            font-size: 3em;
 
-    			<center><h2><?php echo $string[$_GET['lang']]['index']['p1']; ?></h2></center><br/>
-    			<center><p style="text-align:justify; width : 60%"><?php echo $string[$_GET['lang']]['index']['p2']; ?></p></center><br/>
+            margin-top: 8%;
+          }
+          .present{
+            width: 50%;
+
+          }
+          .totalPres{
+            margin-left: 5%;
+          }
+          #bookMainPage{
+            float: right;
+            margin : 50px;
+          }
+        </style>
+        <div class="totalPres">
+    			<br/>
+          <h2 class="foo"><?php echo $string[$_GET['lang']]['index']['p1']; ?></h2><br/><br/>
+          <img src="images/book_smll.png" id="bookMainPage"/>
+          <div class="present">
+
+    			   <center><p style="text-align: justify"><?php echo $string[$_GET['lang']]['index']['p2']; ?></p></center><br/>
+
+          </div>
+
 
         <div>
       </section>
@@ -229,13 +258,13 @@
               ));
               $dataDay = $select->fetch();
               $bookLink2 = $dataDay['book_id'];
-              echo '<center><br/><br/><h2>Livre du jour</h2></center>';
+              echo '<center><br/><br/><h2>' . $string[$_GET['lang']]['index']['dayBook'] . '</h2></center>';
               echo '<br/><br/>';
               $html2 = file_get_contents($bookLink2);
               $obj2 = json_decode($html2, true);
               echo '<center><h2>' . $obj2['volumeInfo']['title'] . '</h2></center><br/>';
               echo '<center><img width="250px" src="' .  $obj2['volumeInfo']['imageLinks']['medium'] . '" /></center><br/>';
-              echo '<center><p>Nombre de pages : ' . $obj2['volumeInfo']['pageCount'] . '</p></center><br/><br/>';
+              echo '<center><p>' . $string[$_GET['lang']]['index']['pageNB'] . ' : ' . $obj2['volumeInfo']['pageCount'] . '</p></center><br/><br/>';
 
              ?>
           </div>
@@ -245,19 +274,29 @@
 
               $select = $bdd->prepare('SELECT * FROM yape_bookday WHERE id = :id');
               $select->execute(array(
-                'id' => 1
+                'id' => 3
               ));
               $dataDay = $select->fetch();
-              $bookLink2 = $dataDay['book_id'];
-              echo '<center><br/><br/><h2>Lecteur du Jour</h2></center>';
+              $pday = $dataDay['book_id'];
+              echo '<center><br/><br/><h2>' . $string[$_GET['lang']]['index']['dayReader'] . '</h2></center>';
               echo '<br/><br/>';
-              $html2 = file_get_contents($bookLink2);
-              $obj2 = json_decode($html2, true);
-              echo '<center><h2>' . $obj2['volumeInfo']['title'] . '</h2></center><br/>';
-              echo '<center><img width="250px" src="' .  $obj2['volumeInfo']['imageLinks']['medium'] . '" /></center><br/>';
-              echo '<center><p>Nombre de pages : ' . $obj2['volumeInfo']['pageCount'] . '</p></center><br/><br/>';
+
+              //Afficher image
+              $SearchUser2 = $bdd->prepare('SELECT * FROM yape_users WHERE id = :id');
+              $SearchUser2->execute(array(
+            		'id' => $pday
+            	));
+
+              $donnesUser = $SearchUser2->fetch();
+              $bigPic = 'images/bigPic/' . after('images/thumbnails/', $donnesUser['local_profil']);
+              $name_ = $donnesUser['fname'];
 
              ?>
+             <center><img width="250px" height="250px" src="<?php echo $bigPic; ?>" /></center>
+             </br>
+             <center><div>
+               <p style="font-weight: bold;"> <?php echo $string[$_GET['lang']]['index']['dayReaderCongrat1'] . $name_ . $string[$_GET['lang']]['index']['dayReaderCongrat2']; ?></p>
+             </div></center>
           </div>
         </div>
 
@@ -265,7 +304,7 @@
 
 	    <section class="page4">
         <div class="content_" style="margin-top : 10%;">
-    			<br/><center><h3>Rejoignez les</h3></center>
+    			<br/><center><h3><?php echo $string[$_GET['lang']]['index']['join']; ?></h3></center>
           <?php
     				include("include/bdd.php");
     				$GETnb = $bdd->prepare('SELECT * FROM yape_nbUsers WHERE id = 1');
@@ -274,7 +313,7 @@
     			  $dataNb = $GETnb->fetch();
     			  $CurrentNb = $dataNb['number_'];
 
-    				echo '<br/><center><h2 class="bigNumber">' . $CurrentNb . '</h2></center><center><h3> personnes inscrites </h3></center><br/><br/>';
+    				echo '<br/><center><h2 class="bigNumber">' . $CurrentNb . '</h2></center><center><h3> ' . $string[$_GET['lang']]['index']['inscrit'] . ' </h3></center><br/><br/>';
     			?>
 
         <div>
