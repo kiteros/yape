@@ -87,7 +87,7 @@
               </li>
 
               <li>
-                  <input type="hidden" value="<?php echo $_SESSION['id']; ?>"/>
+                  <input type="hidden" name="idp" value="<?php echo $_SESSION['id']; ?>"/>
                   <label>Adresse email</label><input type="text" name="email" class="field-long" value="<?php echo $_SESSION['email'];?>" required=""/>
               </li>
 

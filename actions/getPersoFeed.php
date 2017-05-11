@@ -14,7 +14,7 @@ $StringReturn = '';
 $taille = $selectFeed->rowCount();
 while($data = $selectFeed->fetch()){
   $StringReturn .= $data['book_id'] . 'SEP' . $data['date_'] . 'SEP' . $data['image_id'] . 'SEP' . $data['nb_like'] . 'SEP' . $data['nb_comment'] . 'SEP';
-  $StringReturn .= $data['title'] . 'SEP' . $data['auteur'] . 'SEP' . $data['pages'] . 'SEP' . $data['pages'] . 'SEP';
+  $StringReturn .= $data['title'] . 'SEP' . $data['auteur'] . 'SEP' . $data['pages'] . 'SEP' . $data['id'] . 'SEP';
 }
 
 if($taille > 0){

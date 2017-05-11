@@ -2,7 +2,7 @@
 session_start();
 include('../include/bdd.php');
 $link = $_GET['book'];
-$SearchB = $bdd->prepare('SELECT * FROM yape_books WHERE book_id = :id');
+$SearchB = $bdd->prepare('SELECT * FROM yape_books WHERE id = :id');
 $SearchB->execute(array(
   'id' => $link
 ));

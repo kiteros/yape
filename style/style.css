@@ -3,6 +3,12 @@
     src: url('font/LemonMilk.eot') format('eot');
 }
 
+.section{
+  background-color: #efeded;
+  border: 1px solid #cecccc;
+  border-radius: 3px;
+  padding: 20px;
+}
 
 *{
   margin : 0;

@@ -8,8 +8,12 @@
       return substr($inthat, strpos($inthat,$this)+strlen($this));
   };
 
+  $isPersonal = false;
+  $isPersonalStr = "t";
   //Si c'est une visite et pas un compte personnel
   if(isset($_GET['id'])){
+    $isPersonal = false;
+    $isPersonalStr = "f";
     $id = $_GET['id'];
     include('../include/bdd.php');
     //On récupère les infos de la personne
@@ -32,12 +36,19 @@
 
 
   }else{
+    $isPersonal = true;
     $id = $_SESSION['id'];
     $email = $_SESSION['email'];
     $thumb = $_SESSION['profil'];
     $bigPic = $_SESSION['bigPic'];
     $fName = $_SESSION['fname'];
     $lName = $_SESSION['lname'];
+  }
+
+  if($id == $_SESSION['id']){
+    $isPersonal = true;
+    $isPersonalStr = "t";
+
   }
 
   ?>
@@ -130,7 +141,7 @@
                        ?>
                      </p>"
                      <?php
-                     if($_SESSION['id'] == $id){
+                     if($isPersonal){
                       ?>
                        <img src="../images/edit.svg" width="15px" height="15px" id="submit" style="display: inline-block;"/>
                        <?php
@@ -139,7 +150,7 @@
                      </div>
                      <?php
 
-                     if($_SESSION['id'] != $id){
+                     if(!$isPersonal){
 
                     ?>
 
@@ -289,9 +300,7 @@
     data: data,
     options: {}
 });
-   </script>
 
-  <script>
 
   //browser window scroll (in pixels) after which the "back to top" link is shown
     var offset = 300,
@@ -310,14 +319,67 @@
        }
     });
 
-    /*function changeLike(image){
+    function changeLike(image){
       image.src = "../images/like_hover.png";
     }
 
     function changeLike2(image){
       image.src = "../images/like.png";
-    }*/
+    }
+
+    function addLike(linkRef, image){
+      //We add a like
+
+      var xmlhttp = new XMLHttpRequest();
+
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            //Like added
+            changeLike(image);
+
+            var likeId1 = this.responseText.split('SPLIT')[0];
+            var likeId2 = this.responseText.split('SPLIT')[1];
+
+            var textToreplace = '<div class="buttonLike2" id="' + 'div' + likeId1
+            + '"><p class="nbLike" id="' + likeId1 + '">' + likeId2
+            + '</p><img class="buttonLike" onclick="removeLike(' + linkRef + ', this)" src="../images/like_hover.png"></div>';
+
+            $('#div' + likeId1).replaceWith(textToreplace);
+
+          }
+      };
+      xmlhttp.open("GET", "../actions/addLike.php?book=" + linkRef, true);
+      xmlhttp.send();
+    }
+
+    function removeLike(linkRef, image){
+      //We remove a like
+
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            //Like removed
+            changeLike2(image);
+
+            var likeId3 = this.responseText.split('SPLIT')[0];
+            var likeId4 = this.responseText.split('SPLIT')[1];
+
+            var textToreplace = '<div class="buttonLike2" id="' + 'div' + likeId3
+            + '"><p class="nbLike" id="' + likeId3 + '">' + likeId4
+            + '</p><img class="buttonLike" onclick="addLike(' + linkRef
+            + ', this)" onmouseleave="changeLike2(this)" onmouseenter="changeLike(this)" src="../images/like_hover.png"></div>';
+
+            $('#div' + likeId3).replaceWith(textToreplace);
+
+          }
+      };
+      xmlhttp.open("GET", "../actions/removeLike.php?book=" + linkRef, true);
+      xmlhttp.send();
+    }
+
+
     var isLoading = false;
+    var nbDecX = 9;
     AddMoreContent();
     function AddMoreContent(){
       //On fetch en AJAX pour récupere + 10 articles et les ajouter au div
@@ -332,55 +394,72 @@
               $("#loading").remove();
               isLoading = false;
               var dep;
+
               if(this.responseText.toString() === 'end'){
+
                 isEnd = true;
                 $('#feed').append('<br/><br/><center><p>Fin de votre activité</p></center></br></br>');
-                //alert('lol');
                 return;
+
               }else{
+
                 dep = parseInt(this.responseText.split("DEP")[0]);
                 var res = this.responseText.split("DEP")[1].split("SEP");
-
                 var element = document.getElementById("feed");
 
                 lastId += dep;
 
                 for(var x = 0; x < dep; x++){
 
-                  var titre = res[9 * x + 5];
-                  //Affiche du titre et de l'auteur
-                  $('#feed').append('<center>' + titre + '</center>');
-                  var auteur = res[9 * x + 6];
-                  $('#feed').append('<center>Par ' + auteur + '</center>');
+                  var addLike_href = res[nbDecX * x];
+                  var date_text_ = res[nbDecX * x + 1];
+                  var img_link = res[nbDecX * x + 2];
+                  var nb_likes = res[nbDecX * x + 3];
+                  var nb_comm = res[nbDecX * x + 4];
+                  var titre = res[nbDecX * x + 5];
+                  var auteur = res[nbDecX * x + 6];
+                  var nb_Pages = res[nbDecX * x + 7];
+                  var showBookHref = res[nbDecX * x + 8];
 
-                  var date_text_ = res[9 * x + 1];
-                  var img_link = res[9 * x + 2];
+                  var personal_ = '<?php echo $isPersonalStr; ?>';
 
-                  var date_text = document.createTextNode(date_text_);
-                  var date = document.createElement("p");
-                  var center = document.createElement("center");
-                  var seeBook = document.createElement("a");
-                  var image = document.createElement("img");
+                  if(personal_ == 't'){
 
-                  seeBook.href = "#";
-                  date.appendChild(date_text);
-                  image.src = img_link;
-                  image.className = "bookImage";
-                  seeBook.appendChild(image);
-                  center.appendChild(seeBook);
-                  element.appendChild(center);
-                  //
-                  $('#feed').append('<p>'+ res[9 * x + 8] + 'pages</p>');
-                  //Ajout du like et comment
-                  $('#feed').append('<div class="buttonLike2"><p class="nbLike">' + res[9 * x + 3] + '</p><img class="buttonLike" onmouseleave="changeLike2(this)" onmouseenter="changeLike(this)" onclick="addLike(' + res[9 * x] + ')" src="../images/like.png"></div>');
-                  element.appendChild(date);
-                  $('#feed').append('<hr/><br/>');
+                    //Compte personel
+                    //Affiche du titre et de l'auteur
+                    $('#feed').append('<div class="section"><center>' + titre + '</center>'
+                    + '<center>Par ' + auteur + '</center>'
+                    + '<center><a href="showBook?id=' + showBookHref + '"><img class="bookImage" src="' + img_link + '"/></a></center>'
+                    + '<p>' + nb_Pages + ' pages</p>'
+                    + '<div class="buttonLike2" id="' + 'div' + showBookHref + '"><p class="nbLike" id="' + showBookHref + '">' + nb_likes
+                    + '</p><img class="buttonLike" src="../images/like.png"></div>'
+                    + '<p>' + date_text_ + '</p>');
+
+                    $('#feed').append('<hr/><br/>');
+
+                  }else{
+
+                    //Compte personel -> Autoriser les likes
+                    //Affiche du titre et de l'auteur
+                    $('#feed').append('<div class="section"><center>' + titre + '</center>'
+                    + '<center>Par ' + auteur + '</center>'
+                    + '<center><a href="showBook?id=' + showBookHref + '"><img class="bookImage" src="' + img_link + '"/></a></center>'
+                    + '<p>' + nb_Pages + ' pages</p>'
+                    + '<div class="buttonLike2" id="' + 'div' + showBookHref + '"><p class="nbLike" id="' + showBookHref + '">' + nb_likes
+                    + '</p><img class="buttonLike" onmouseleave="changeLike2(this)" onmouseenter="changeLike(this)" onclick="addLike(' + showBookHref + ',this)" src="../images/like.png"></div>'
+                    + '<p>' + date_text_ + '</p>');
+
+                    $('#feed').append('<hr/><br/>');
+
+                  }
+
+
 
                 }
               }
 
-
               if(dep < 5){
+                //Il n'y a plus rien à afficher
                 $('#feed').append('<br/><br/><center><p>Fin de votre activité</p></center></br></br>');
                 return;
               }
@@ -410,20 +489,6 @@
         xmlhttp.open("GET", theUrl, false );
         xmlhttp.send();
     }
-
-    /*AddMoreContent();
-    function addLike(linkRef, image){
-      //on ajoute un like
-      var xmlhttp = new XMLHttpRequest();
-      xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            //Like est ajouté
-            changeLike(image);
-          }
-      };
-      xmlhttp.open("GET", "../actions/addLike.php?book=" + linkRef, true);
-      xmlhttp.send();
-    }*/
 
 
   </script>
