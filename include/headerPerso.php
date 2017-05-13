@@ -1,10 +1,11 @@
 <header id="headperso">
-  <p></p>
+  
+    <div id="searchBar2">
+      <div class="smallSearch2"><form id="searchForm2" action="../actions/search.php" method="post">
+        <input type="text" name="search" placeholder="Search anything..." class="smallSearch" autocomplete="off" onkeyup="ontouch(this.value)" />
 
-    <div class="smallSearch"><form action="../actions/search.php" method="post">
-      <input type="text" name="search" placeholder="Search anything..." class="smallSearch" autocomplete="off" onkeyup="ontouch(this.value)" />
-
-    </form>
+      </form>
+    </div>
     <div id="hints_float">
     </div>
 

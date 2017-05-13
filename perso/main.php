@@ -219,7 +219,7 @@
 
               if(isLiked == 'true'){
                 //Print book infos
-                $('#feed').append('<div class="section">'
+                $('#feed').append('<div class="sectionb">'
                 + '<div class="topCont"><a href="myFeed?id=' + readerId
                 + '"><img width="50px" height="50px" style="display : inline-block;" src="' + profilThumb + '"></a><p class="nameLecteur" >' + nameLecteur + ' a lu </p></div>'
                 + '<center>' + titre + '</center>'
@@ -232,7 +232,7 @@
 
               }else{
                 //Print book infos
-                $('#feed').append('<div class="section">'
+                $('#feed').append('<div class="sectionb">'
                 + '<div class="topCont"><a href="myFeed?id=' + readerId
                 + '"><img width="50px" height="50px" style="display : inline-block;" src="' + profilThumb + '"></a><p class="nameLecteur" >' + nameLecteur + ' a lu </p></div>'
                 + '<center>' + titre + '</center>'

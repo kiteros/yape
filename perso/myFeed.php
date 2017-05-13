@@ -427,7 +427,7 @@
 
                     //Compte personel
                     //Affiche du titre et de l'auteur
-                    $('#feed').append('<div class="section"><center>' + titre + '</center>'
+                    $('#feed').append('<div class="sectionb"><center>' + titre + '</center>'
                     + '<center>Par ' + auteur + '</center>'
                     + '<center><a href="showBook?id=' + showBookHref + '"><img class="bookImage" src="' + img_link + '"/></a></center>'
                     + '<p>' + nb_Pages + ' pages</p>'
@@ -441,7 +441,7 @@
 
                     //Compte personel -> Autoriser les likes
                     //Affiche du titre et de l'auteur
-                    $('#feed').append('<div class="section"><center>' + titre + '</center>'
+                    $('#feed').append('<div class="sectionb"><center>' + titre + '</center>'
                     + '<center>Par ' + auteur + '</center>'
                     + '<center><a href="showBook?id=' + showBookHref + '"><img class="bookImage" src="' + img_link + '"/></a></center>'
                     + '<p>' + nb_Pages + ' pages</p>'

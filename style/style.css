@@ -3,11 +3,76 @@
     src: url('font/LemonMilk.eot') format('eot');
 }
 
-.section{
+.sectionb{
   background-color: #efeded;
   border: 1px solid #cecccc;
   border-radius: 3px;
   padding: 20px;
+}
+
+.thefoot{
+  background-color: #333333;
+}
+
+
+#manPic{
+  background-image: url("../images/book.jpg");
+  height : 1000px;
+	background-size: cover;
+  display: flex;
+}
+
+#searchBar{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 450px;
+  width: 50%;
+}
+
+#searchBar2{
+  width: 50%;
+}
+
+.smallSearch{
+  height: 30px;
+  width: 100%;
+  border: 1px solid gray;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1.5em;
+  color: black;
+}
+
+.smallSearch2{
+  height: 30px;
+  width: 100%;
+  border-radius: 8px;
+
+  font-size: 1.5em;
+
+}
+
+.foo{
+  font-size: 3em;
+
+  margin-top: 8%;
+}
+.present{
+  width: 50%;
+
+}
+.totalPres{
+  margin-left: 5%;
+}
+#bookMainPage{
+  float: right;
+  margin : 50px;
+}
+
+
+.thefoot_{
+  display: flex;
+  justify-content: space-around;
 }
 
 *{
@@ -15,8 +80,8 @@
   font-family: 'lemon', Arial, serif;
 }
 
-header{
-
+.classfoot{
+  display: inline-block;
 }
 
 #leftContainer{
@@ -187,14 +252,6 @@ header{
   text-align: justify;
 }
 
-#searchBar{
-  width : 50%;
-}
-
-.smallSearch{
-  width : 50%;
-}
-
 a{
   text-decoration: none;
   color : #3B3838;
@@ -224,25 +281,6 @@ a:hover{
   padding: 0;
 }
 
-input[type=text]:not(.field-divided):not(.field-long) {
-    width: 50%;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: white;
-    background-image: url('../images/searchicon.png');
-    background-position: 10px 10px;
-    background-size: 25px 25px;
-    background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-}
-
-input[type=text]:not(.field-divided):not(.field-long):focus {
-    width: 100%;
-}
 
 .connect{
   width : 350px;
