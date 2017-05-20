@@ -1,45 +1,109 @@
+<style>
+
+.container, .main {
+    width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50px;
+}
+
+
+input {
+    font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: #555860;
+}
+
+.search {
+    position: relative;
+    margin: 0 auto;
+    width: 700px;
+}
+
+.search input {
+    height: 50px;
+    width: 100%;
+    padding: 0 24px 0 25px;
+    background: white url("http://cssdeck.com/uploads/media/items/5/5JuDgOa.png") 10px 18px no-repeat;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #a8acbc #babdcc #c0c3d2;
+    border-radius: 26px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
+    -moz-box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
+    -ms-box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
+    -o-box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
+    box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
+}
+
+.search input:focus {
+    outline: none;
+    border-color: #66b1ee;
+    -webkit-box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
+    -moz-box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
+    -ms-box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
+    -o-box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
+    box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
+}
+
+.search input:focus + .results { display: block }
+
+:-moz-placeholder {
+    color: #a7aabc;
+    font-weight: 200;
+}
+
+::-webkit-input-placeholder {
+    color: #a7aabc;
+    font-weight: 200;
+}
+
+</style>
+
 <header id="headperso">
-  
-    <div id="searchBar2">
-      <div class="smallSearch2"><form id="searchForm2" action="../actions/search.php" method="post">
-        <input type="text" name="search" placeholder="Search anything..." class="smallSearch" autocomplete="off" onkeyup="ontouch(this.value)" />
-
-      </form>
-    </div>
-    <div id="hints_float">
-    </div>
-
-  </div>
-  <?php
-  if($_SESSION['id'] != ''){
-  ?>
-  <div id="profilPic">
-    <p style="display:inline-block;" class="inProfil2"></p>
-    <a class="fancybox" href="#inline1"><img style="display:inline-block;" class="inProfil" width="50px" height="50px" src="<?php echo $_SESSION['profil']; ?>"></a>
-
-    <div class="dropdown" style="display:inline-block;" class="inProfil">
-      <button class="dropbtn"><?php echo $_SESSION['fname']; ?></button>
-      <div class="dropdown-content">
-        <a href="params.php">Parametres</a>
-        <a href="../actions/disconnet.php">Déconnecter</a>
+  <section class="main">
+	 <form class="search" action="actions/search.php" autocomplete="off" method="post" >
+		 <input type="text" name="search" placeholder="Search..." autocomplete="off" onkeyup="ontouch(this.value)"/>
+	 </form>
+   <div id="hints_float2">
       </div>
-    </div>
-
-  </div>
+  </section>
   <?php
-  }else{
-    //Boutton se connecter
-    ?>
-    <div class="connect">
-      <button id="myBtn" class="buttonSignUp" onclick="showSignUp()">Sign Up</button>
-      <form action="actions/signin.php" method="post">
-        <input type="submit" value="Sign in" class="buttonSignIn"/>
-      </form>
-    </div>
+      if($_SESSION['id'] != ''){
+      ?>
+      <div id="profilPic">
+        <p style="display:inline-block;" class="inProfil2"></p>
+        <a class="fancybox" href="#inline1"><img style="display:inline-block;" class="inProfil" width="50px" height="50px" src="<?php echo $_SESSION['profil']; ?>"></a>
+
+        <div class="dropdown" style="display:inline-block;" class="inProfil">
+          <button class="dropbtn"><?php echo $_SESSION['fname']; ?></button>
+          <div class="dropdown-content">
+            <a href="params.php">Parametres</a>
+            <a href="../actions/disconnet.php">Déconnecter</a>
+          </div>
+        </div>
+
+      </div>
     <?php
-  }
-   ?>
+    }else{
+      //Boutton se connecter
+      ?>
+      <div class="connect">
+        <button id="myBtn" class="buttonSignUp" onclick="showSignUp()">Sign Up</button>
+        <form action="actions/signin.php" method="post">
+          <input type="submit" value="Sign in" class="buttonSignIn"/>
+        </form>
+      </div>
+      <?php
+    }
+     ?>
 </header>
+
 <hr/>
 
 
@@ -55,10 +119,6 @@
 
 </div>
 
-<script>
-//Crop
-
-</script>
 
 
 <script>
@@ -116,13 +176,13 @@ var isLoading = false;
 function ontouch(str){
   if(!isLoading){
 
-    $('#hints_float').empty();
-    $('#hints_float').append('<div style=\"display: inline-block;\" id=\"loading2\"></div>');
+    $('#hints_float2').empty();
+    $('#hints_float2').append('<div style=\"display: inline-block;\" id=\"loading2\"></div>');
     isLoading = true;
     $('#loading2').append('<center id="loading"><div><img width="30px" height="30px" src="../images/Loading_icon.gif" /></div></center>');
 
   }
-  var element = document.getElementById("hints_float");
+  var element = document.getElementById("hints_float2");
     if (str.length == 0) {
 
       element.innerHTML = "<div style=\"display: inline-block;\" id=\"loading2\"></div>";
@@ -137,13 +197,13 @@ function ontouch(str){
         if (this.readyState == 4 && this.status == 200) {
             $("#loading").remove();
             isLoading = false;
-            document.getElementById("hints_float").innerHTML = "";
-            document.getElementById("hints_float").style.visibility = 'visible';
+            document.getElementById("hints_float2").innerHTML = "";
+            document.getElementById("hints_float2").style.visibility = 'visible';
             var x = 0;
             var res = this.responseText.split("DEP")[0].split("SEP");
             var nbPeople = this.responseText.split("XEP")[1];
 
-            $('#hints_float').append('<div class="whiteSeparator">Books</div>');
+            $('#hints_float2').append('<div class="whiteSeparator">Books</div>');
             while(x < 4){
               var imageMini = document.createElement("img");
               imageMini.scr = res[3 * x + 2];
@@ -153,12 +213,12 @@ function ontouch(str){
               var text2 = document.createTextNode(res[3 * x]);
               li2.appendChild(text2);
               li2.appendChild(imageMini);
-              var element2 = document.getElementById("hints_float");
+              var element2 = document.getElementById("hints_float2");
               element2.appendChild(li2);
               element2.appendChild(br);
               x++;
             }
-            $('#hints_float').append('<div class="whiteSeparator">People</div>');
+            $('#hints_float2').append('<div class="whiteSeparator">People</div>');
             var res2 = this.responseText.split("DEP")[1].split("SEP");
             x = 0;
 
@@ -171,7 +231,7 @@ function ontouch(str){
               var br = document.createElement("br");
               var text2 = document.createTextNode(res2[2 * x]);
               li3.appendChild(text2);
-              var element2 = document.getElementById("hints_float");
+              var element2 = document.getElementById("hints_float2");
               element2.appendChild(li3);
               element2.appendChild(br);
               x++;

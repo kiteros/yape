@@ -221,7 +221,10 @@
                 //Print book infos
                 $('#feed').append('<div class="sectionb">'
                 + '<div class="topCont"><a href="myFeed?id=' + readerId
-                + '"><img width="50px" height="50px" style="display : inline-block;" src="' + profilThumb + '"></a><p class="nameLecteur" >' + nameLecteur + ' a lu </p></div>'
+                + '"><img width="50px" height="50px" style="display : inline-block;" src="' + profilThumb + '"></a><p class="nameLecteur" >' + nameLecteur + ' a lu </p>'
+                + '<div class="dropdown" style="display:inline-block;" class="infeed"><div style="float:right;"><button class="dropbtn"></button><div class="dropdown-content">'
+                + '<a href="params.php">Parametres</a><a href="../actions/disconnet.php">Déconnecter</a>'
+                + '</div></div></div></div>'
                 + '<center>' + titre + '</center>'
                 + '<center>Par ' + auteur + '</center>'
                 + '<center><a href="showBook?id=' + showBookLink + '"><img class="bookImage" src="' + img_link + '"/></a></center>'
@@ -234,7 +237,10 @@
                 //Print book infos
                 $('#feed').append('<div class="sectionb">'
                 + '<div class="topCont"><a href="myFeed?id=' + readerId
-                + '"><img width="50px" height="50px" style="display : inline-block;" src="' + profilThumb + '"></a><p class="nameLecteur" >' + nameLecteur + ' a lu </p></div>'
+                + '"><img width="50px" height="50px" style="display : inline-block;" src="' + profilThumb + '"></a><p class="nameLecteur" >' + nameLecteur + ' a lu </p>'
+                + '<div class="dropdown" style="display:inline-block;" class="infeed"><div style="float:right;"><button class="dropbtn"></button><div class="dropdown-content">'
+                + '<a href="params.php">Parametres</a><a href="../actions/disconnet.php">Déconnecter</a>'
+                + '</div></div></div></div>'
                 + '<center>' + titre + '</center>'
                 + '<center>Par ' + auteur + '</center>'
                 + '<center><a href="showBook?id=' + showBookLink + '"><img class="bookImage" src="' + img_link + '"/></a></center>'

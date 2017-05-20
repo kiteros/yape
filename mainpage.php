@@ -192,39 +192,26 @@ input[type="submit"]:hover {
 
 </header>
 
-<style>
-
-</style>
-
 <body>
 
   <div id="manPic">
 
     <div id="searchBar">
-
-      <!--<form id="searchForm" action="actions/search.php">
-        <input type="text" name="search" placeholder="Search for books or readers" class="smallSearch" autocomplete="off" onkeyup="ontouch(this.value)" />
-
-        <div id="hints_float">
-          <div style="display: inline-block;" id="loading2"></div>
-        </div>
-      </form>-->
       <div id="wrap">
         <form action="actions/search.php" autocomplete="off">
-        <input id="search" name="search" type="text" placeholder="What have you read ?" autocomplete="off" onkeyup="ontouch(this.value)" ><input id="search_submit" value="Rechercher" type="submit">
-      </form><br/>
+          <input id="search" name="search" type="text" placeholder="Search any book.." autocomplete="off" onkeyup="ontouch(this.value)" ><input id="search_submit" value="Rechercher" type="submit">
+        </form>
 
-    </div><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-      <div id="hints_float">
-        <div style="display: inline-block;" id="loading2"></div>
       </div>
-
+    </div>
+    <div id="hints_float">
+      <div style="display: inline-block;" id="loading2"></div>
     </div>
 
   </div>
 
   <script>
-
+  document.getElementById("hints_float").style.visibility = 'hidden';
   var isLoading = false;
   function ontouch(str){
     if(!isLoading){
@@ -232,7 +219,7 @@ input[type="submit"]:hover {
       $('#hints_float').empty();
       $('#hints_float').append('<div style=\"display: inline-block;\" id=\"loading2\"></div>');
       isLoading = true;
-      $('#loading2').append('<center id="loading"><div><img width="30px" height="30px" src="../images/Loading_icon.gif" /></div></center>');
+      $('#loading2').append('<div id="loading"><img width="30px" height="30px" src="../images/Loading_icon.gif" /></div>');
 
     }
     var element = document.getElementById("hints_float");
@@ -303,7 +290,7 @@ input[type="submit"]:hover {
     <img src="images/book_smll.png" id="bookMainPage"/>
     <div class="present">
 
-       <center><p style="text-align: justify"><?php echo $string[$_GET['lang']]['index']['p2']; ?></p></center><br/>
+       <center><p style="text-align: justify; font-size: 2em;"><?php echo $string[$_GET['lang']]['index']['p2']; ?></p></center><br/>
 
     </div>
   </div>

@@ -144,6 +144,28 @@
                      if($isPersonal){
                       ?>
                        <img src="../images/edit.svg" width="15px" height="15px" id="submit" style="display: inline-block;"/>
+                       <script>
+                       $('#submit').click(function(e){
+                         var html = $('.change p').html();
+                         //Changer la bio
+                         $('.change').replaceWith('<div id="ch" class="change"><textarea id="change1" row="15" cols="30">'+html +'</textarea><br/><button onclick="changevalider()" class="buttonSignIn" >Valider</button></div>').html().focus();
+
+                       });
+
+                       function changevalider(){
+                         var html2 = document.getElementById("change1").value;
+                         var xmlhttp = new XMLHttpRequest();
+                         xmlhttp.onreadystatechange = function() {
+                           if(this.readyState == 4 && this.status == 200) {
+                             location.reload();
+                           }
+                         };
+                         var params = "des=" + html2 + "&id=" + <?php echo $id; ?>;
+                         xmlhttp.open("POST", "../actions/changeDes.php", true);
+                         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                         xmlhttp.send(params);
+                       }
+                       </script>
                        <?php
                      }
                         ?>
@@ -154,7 +176,7 @@
 
                     ?>
 
-                    <form action="../actions/addFriend.php" method="post" style="display: inline-block; vertical-align:top;">
+                    <form id="formFriend" action="../actions/addFriend.php" method="post" style="display: inline-block; vertical-align:top;">
                       <input type="hidden" name="toadd" value="<?php echo $id; ?>" />
                       <?php
                          if(isset($_SESSION['id'])){
@@ -185,9 +207,9 @@
                          ));
 
                          $nbResult2 = $getF2->rowCount();
-                         if($nbResult > 0 OR $nbResult2 > 0){
+                         if($nbResult2 > 0){
                            ?>
-                           <center><h3 style="color: orange;">Suivi</h3></center>
+                           <center><input type="submit" value="Suivi" onclick="dounfollow(<?php echo $_GET['id']; ?>)" onmouseover="changeUnfollow(this)" onmouseleave="changefollow(this)" class="buttonDeleteFriend"/></center>
                            <?php
                          }else{
                            ?>
@@ -211,26 +233,21 @@
                 </div>
                 <script>
 
-                $('#submit').click(function(e){
-                  var html = $('.change p').html();
-                  //Changer la bio
-                  $('.change').replaceWith('<div id="ch" class="change"><textarea id="change1" row="15" cols="30">'+html +'</textarea><br/><button onclick="changevalider()" class="buttonSignIn" >Valider</button></div>').html().focus();
 
-                });
-
-                function changevalider(){
-                  var html2 = document.getElementById("change1").value;
-                  var xmlhttp = new XMLHttpRequest();
-                  xmlhttp.onreadystatechange = function() {
-                    if(this.readyState == 4 && this.status == 200) {
-                      location.reload();
-                    }
-                  };
-                  var params = "des=" + html2 + "&id=" + <?php echo $id; ?>;
-                  xmlhttp.open("POST", "../actions/changeDes.php", true);
-                  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                  xmlhttp.send(params);
+                function changeUnfollow(inp){
+                  inp.value = "Désabonner";
+                  element = document.getElementById("formFriend");
+                  var id = <?php echo $_GET['id']; ?>;
+                  element.action = "../actions/unFollow.php?id=" + id;
                 }
+
+                function changefollow(inp){
+                  inp.value = "Suivi";
+                }
+
+
+
+
 
 
 

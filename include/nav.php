@@ -12,7 +12,6 @@
   <ul class="menu-vertical">
     <li class="mv-item"><a href="main.php">Actualités</a></li>
     <li class="mv-item"><a href="myFeed.php">Mon activité</a></li>
-    <li class="mv-item"><a href="addBook.php">Mes livres</a></li>
     <li class="mv-item"><a href="recommendations.php">Recommendations</a></li>
   </ul>
-</div> 
+</div>
