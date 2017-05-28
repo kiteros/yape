@@ -19,6 +19,6 @@ $.getJSON('http://api.wipmania.com/jsonp?callback=?', function (data) {
       contryCode='EN';
       break;
   }
-  window.location.replace('mainpage.php?lang=' + contryCode);
+  window.location.replace('main/index.php?lang=' + contryCode);
 });
 </script>

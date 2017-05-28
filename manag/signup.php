@@ -10,6 +10,15 @@
   </head>
 
   <body>
+	<?php
+		if(isset($_GET['er'])){
+			switch($_GET['er']){
+				case 'codeinit':
+					echo '<center><div style="width: 50%; color: red;"><p>You can\'t write code in the fields...</p></div></center>';
+					break;
+			}
+		}
+	 ?>
 	</center><form action="../actions/signup.php" method="post" id="form2" data-parsley-validate="">
       <ul class="formshape" id="form-style-1">
 				<center><li><img src="../images/yape_logo.png" width="100px" width="100px"><span id="yape_title">Yape - SignUp</span></li></center>
@@ -29,7 +38,7 @@
             <label><input name="keeplog" type="checkbox" value="k">Keep me Logged in</label>
         </li>
         <li>
-            <p><input type="submit" value="Se connecter" /><a href="signin.php" id="creerCompte">Se connecter</a></p>
+            <p><input type="submit" value="S'inscrire'" /><a href="signin.php" id="creerCompte">Se connecter</a></p>
         </li>
 
     </ul>

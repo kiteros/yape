@@ -1,0 +1,87 @@
+
+body {
+	background: #fff;
+	font-size: 15px;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: white;
+}
+#wrap {
+  display: block;
+  position: relative;
+  height: 60px;
+  width: 750px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+input[type="text"] {
+  height: 60px;
+  font-size: 55px;
+  display: inline-block;
+  font-family: "Lato";
+  font-weight: 250;
+  border: none;
+  outline: none;
+  color: #fff;
+  padding: 3px;
+  padding-right: 60px;
+  width: 0px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  z-index: 3;
+  transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+  cursor: pointer;
+  width: 700px;
+  z-index: 1;
+  border-bottom: 1px solid #fff;
+  cursor: text;
+}
+
+input[type="text"]:focus:hover {
+  border-bottom: 1px solid #fff;
+}
+
+input[type="submit"] {
+  height: 67px;
+  width: 63px;
+  display: inline-block;
+  color:red;
+  float: right;
+  background: url("../img/search2.png") center center no-repeat;
+  text-indent: -10000px;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  opacity: 0.4;
+  cursor: pointer;
+  transition: opacity .4s ease;
+}
+
+input[type="submit"]:hover {
+  opacity: 0.8;
+}
+
+.whiteSeparator{
+  color : #8c1502;
+  font-size: 1.7em;
+}
+
+a{
+  color : #8e2708;
+  font-size: 1.4em;
+}
+
+a:hover{
+  color : #030a4f;
+  font-size: 1.4em;
+}
+
+#back{
+  background-color: #fff;
+}
