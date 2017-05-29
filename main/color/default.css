@@ -1,7 +1,12 @@
-
 a,.tp-caption a.btn:hover {
 	color: #67b0d1;
+ text-decoration : none;
 }
+
+a:hover{
+text-decoration : none;
+}
+
 .top-nav-collapse {
 	background: #f7a63d;
 }
@@ -36,3 +41,4 @@ footer {
   background-color: #f7a63d;
   border-color: #67b0d1;
 }
+	

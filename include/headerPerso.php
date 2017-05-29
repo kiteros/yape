@@ -65,46 +65,6 @@ input {
 
 </style>
 
-<header id="headperso">
-  <section class="main">
-	 <form class="search" action="actions/search.php" autocomplete="off" method="post" >
-		 <input type="text" name="search" placeholder="Search..." autocomplete="off" onkeyup="ontouch(this.value)"/>
-	 </form>
-   <div id="hints_float2">
-      </div>
-  </section>
-  <?php
-      if($_SESSION['id'] != ''){
-      ?>
-      <div id="profilPic">
-        <p style="display:inline-block;" class="inProfil2"></p>
-        <a class="fancybox" href="#inline1"><img style="display:inline-block;" class="inProfil" width="50px" height="50px" src="<?php echo $_SESSION['profil']; ?>"></a>
-
-        <div class="dropdown" style="display:inline-block;" class="inProfil">
-          <button class="dropbtn"><?php echo $_SESSION['fname']; ?></button>
-          <div class="dropdown-content">
-            <a href="params.php">Parametres</a>
-            <a href="../actions/disconnet.php">Déconnecter</a>
-          </div>
-        </div>
-
-      </div>
-    <?php
-    }else{
-      //Boutton se connecter
-      ?>
-      <div class="connect">
-        <button id="myBtn" class="buttonSignUp" onclick="showSignUp()">Sign Up</button>
-        <form action="actions/signin.php" method="post">
-          <input type="submit" value="Sign in" class="buttonSignIn"/>
-        </form>
-      </div>
-      <?php
-    }
-     ?>
-</header>
-
-<hr/>
 
 
       <script type="text/javascript">
@@ -177,25 +137,25 @@ function ontouch(str){
   if(!isLoading){
 
     $('#hints_float2').empty();
-    $('#hints_float2').append('<div style=\"display: inline-block;\" id=\"loading2\"></div>');
+    $('#hints_float2').append('<div style=\"display: inline-block;\" id=\"loading2\"></div><div id="back"></div>');
     isLoading = true;
-    $('#loading2').append('<center id="loading"><div><img width="30px" height="30px" src="../images/Loading_icon.gif" /></div></center>');
+    $('#loading2').append('<div id="loading"><img width="30px" height="30px" src="../images/Loading_icon.gif" /></div><div id="back"></div>');
 
   }
   var element = document.getElementById("hints_float2");
     if (str.length == 0) {
 
-      element.innerHTML = "<div style=\"display: inline-block;\" id=\"loading2\"></div>";
+      element.innerHTML = "<div style=\"display: inline-block;\" id=\"loading2\"><div id=\"back\"></div></div>";
       element.style.visibility = 'hidden';
       $("#loading").remove();
       isLoading = false;
       return;
     } else {
 
-      var xmlhttp = new XMLHttpRequest();
-      xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            $("#loading").remove();
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+              $("#loading").remove();
             isLoading = false;
             document.getElementById("hints_float2").innerHTML = "";
             document.getElementById("hints_float2").style.visibility = 'visible';

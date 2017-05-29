@@ -11,7 +11,7 @@ body{
     top: 0;
     left: 0;
     background: white;
-    width: 200px;
+    width: 300px;
     padding: 0px;
 
 }
@@ -29,7 +29,7 @@ body{
 }
 
 #logo{
-  height : 200px;
+  height : 120px;
 }
 
 #hints{
@@ -38,10 +38,9 @@ body{
 /* style du bloc ul */
 .menu-vertical {
   margin-top: 100px;
-  width: 200px; /* optionnel, c'est pour la démo */
+  width: 300px; /* optionnel, c'est pour la démo */
   list-style: none; /* supprime les puces de liste */
   padding: 0px; /* on fait un peu de place autour des liens */
-  margin: 0; /* on annule les marges */
   background: #F2F2F2;
 }
 

@@ -1,8 +1,4 @@
 
-body {
-	background: #fff;
-	font-size: 15px;
-}
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color: white;
 }
@@ -75,11 +71,13 @@ input[type="submit"]:hover {
 a{
   color : #6278e5;
   font-size: 1.4em;
+  text-decoration : none;
 }
 
 a:hover{
   color : #192b84;
   font-size: 1.4em;
+  text-decoration : none;
 }
 
 #back{

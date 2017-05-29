@@ -18,7 +18,7 @@
 #manPic{
   background-image: url("../images/book.jpg");
   height : 1000px;
-	background-size: cover;
+  background-size: cover;
   display: flex;
 }
 
@@ -141,8 +141,25 @@
   font-weight: bold;
 }
 
+.whiteSeparator{
+  color : #ef5f2f;
+}
+
+#hints_float2 a{
+  color : #1154ad;
+  text-decoration: none;
+  -webkit-transition: color .2s ease-in;
+  -moz-transition: color .2s ease-in;
+  -o-transition: color .2s ease-in;
+  transition: color .2s ease-in;
+}
+
+#hints_float2 a:hover{
+  color : #a3431a;
+}
+
 #left{
-  margin-left : 20px;
+  margin-left : 100px;
 }
 
 .buttonLike2{
@@ -268,15 +285,6 @@
   text-align: justify;
 }
 
-a{
-  text-decoration: none;
-  color : #3B3838;
-}
-
-a:hover{
-  color : #DB6060;
-}
-
 #hints{
   padding : 10px;
   display : block;
@@ -284,10 +292,6 @@ a:hover{
   font-size: 2em;
   color : black;
   text-align: center;
-}
-
-.whiteSeparator{
-  background-color: #777a7f;
 }
 
 #hints_float{
@@ -306,16 +310,18 @@ a:hover{
 
 #hints_float2{
   position: absolute;
-  width: 700px;
-  margin-top: 3px;
-  left: 50%;
-  margin-left: -500px;
+  margin-top: 20px;
+  margin-left : 25px;
+  width : 250px;
   background-color: #edeeef;
-  color: black;
-  padding: 0;
   text-align: center;
   font-size: 1.5em;
   line-height: 140%;
+}
+
+#hint_float2 a{
+  color : #6278e5;
+      font-size: 1.4em;
 }
 
 
@@ -326,97 +332,97 @@ a:hover{
 }
 
 .buttonSignUp {
-	background-color:#599bb3;
+  background-color:#599bb3;
   -moz-border-radius:4px;
-	-webkit-border-radius:4px;
-	border : none;
+  -webkit-border-radius:4px;
+  border : none;
 
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:20px;
-	font-weight:bold;
-	padding:13px 32px;
-	text-decoration:none;
-	text-shadow:0px 0px 0px #3d768a;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:20px;
+  font-weight:bold;
+  padding:13px 32px;
+  text-decoration:none;
+  text-shadow:0px 0px 0px #3d768a;
 }
 .buttonSignUp:hover {
-	background-color:#408c99;
+  background-color:#408c99;
 }
 .buttonSignUp:active {
-	position:relative;
-	top:1px;
+  position:relative;
+  top:1px;
 }
 
 .buttonSignIn {
   margin-left: 10px;
-	background-color:#f44842;
-	-moz-border-radius:4px;
-	-webkit-border-radius:4px;
-	border : none;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:20px;
-	font-weight:bold;
-	padding:13px 32px;
-	text-decoration:none;
-	text-shadow:0px 0px 0px #3d768a;
+  background-color:#f44842;
+  -moz-border-radius:4px;
+  -webkit-border-radius:4px;
+  border : none;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:20px;
+  font-weight:bold;
+  padding:13px 32px;
+  text-decoration:none;
+  text-shadow:0px 0px 0px #3d768a;
 }
 .buttonSignIn:hover {
-	background-color:#f76560;
+  background-color:#f76560;
 }
 .buttonSignIn:active {
-	position:relative;
-	top:1px;
+  position:relative;
+  top:1px;
 }
 
 .buttonAddFriend {
-	background-color:#7289ad;
-	-moz-border-radius:4px;
-	-webkit-border-radius:4px;
-	border : none;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:20px;
-	font-weight:bold;
-	padding:13px 32px;
-	text-decoration:none;
-	text-shadow:0px 0px 0px #3d768a;
+  background-color:#7289ad;
+  -moz-border-radius:4px;
+  -webkit-border-radius:4px;
+  border : none;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:20px;
+  font-weight:bold;
+  padding:13px 32px;
+  text-decoration:none;
+  text-shadow:0px 0px 0px #3d768a;
 }
 .buttonAddFriend:hover {
-	background-color:#687b9b;
+  background-color:#687b9b;
 }
 .buttonAddFriend:active {
-	position:relative;
-	top:1px;
+  position:relative;
+  top:1px;
 }
 
 .buttonDeleteFriend{
-	background-color:#bc6b23;
-	-moz-border-radius:4px;
-	-webkit-border-radius:4px;
-	border : none;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:20px;
-	font-weight:bold;
-	padding:13px 32px;
-	text-decoration:none;
-	text-shadow:0px 0px 0px #3d768a;
+  background-color:#bc6b23;
+  -moz-border-radius:4px;
+  -webkit-border-radius:4px;
+  border : none;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:20px;
+  font-weight:bold;
+  padding:13px 32px;
+  text-decoration:none;
+  text-shadow:0px 0px 0px #3d768a;
 }
 .buttonDeleteFriend:hover {
-	background-color:#9b510f;
+  background-color:#9b510f;
 }
 .buttonDeleteFriend:active {
-	position:relative;
-	top:1px;
+  position:relative;
+  top:1px;
 }
 
 .parallax-window {

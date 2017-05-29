@@ -47,6 +47,10 @@
 			include('../include/metadata.php');
 			 ?>
        <link rel="stylesheet" href="../style/style.css" />
+<link rel="stylesheet" href="../main/css/style.css" />
+       <link rel="stylesheet" href="../main/css/searchBar.css" />
+       <link href="../main/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+       <link href="../main/color/default.css" rel="stylesheet" type="text/css">
        <link rel="stylesheet" href="../style/stylePerso.css" />
 			 ?>
 	    <title>Yape - My page</title>
