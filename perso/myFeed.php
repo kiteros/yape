@@ -73,9 +73,21 @@
 
                 <div id="leftContainer">
                   <div id="leftPart">
-                    <div id="leftPart">
-                      <img width="150px" height="150px" src="<?php echo $bigPic; ?>" />
+                    <div id="leftPart2">
+                      <a class="fancybox" href="#inline1" class="darken" onmouseenter="showText()" onmouseleave="hideText()" >
+                        <img width="150px" height="150px" src="<?php echo $bigPic; ?>" class="img-circle"/>
+                        <p visibility="hidden" id="changepix" class="nothovered"></p>
+                      </a>
                     </div>
+                    <script>
+                    function showText(){
+                      $('#changepix').append('<img src="../images/edit.svg" width="15px" height="15px" id="submit" style="display: inline-block;"/>Change picture');
+                    }
+
+                    function hideText(){
+                      $('#changepix').empty();
+                    }
+                    </script>
                     <div id="rightPart">
                       <p>Following : <?php echo $following; ?></p>
                       <p>Follower : <?php echo $followerer; ?></p>
@@ -386,7 +398,7 @@
                   var nb_comm = res[nbDecX * x + 4];
                   var titre = res[nbDecX * x + 5];
                   var auteur = res[nbDecX * x + 6];
-                  var nb_Pages = res[nbDecX * x + 7];
+                  var nb_pages = res[nbDecX * x + 7];
                   var showBookHref = res[nbDecX * x + 8];
 
                   var personal_ = '<?php echo $isPersonalStr; ?>';
@@ -395,24 +407,31 @@
 
                     //Compte personel
                     //Affiche du titre et de l'auteur
-                    $('#feed').append('<div class="sectionb"><center>' + titre + '</center>'
+                    $('#feed').append('<div class="sectionb">'
+                    + '<div class="topCont">'
+                    + '<div width="25px" height="25px" class="dropdown" style="display:inline-block; float: right;" class="infeed"><div style="float:right;"><button width="25px" height="25px" class="dropbtn2"></button><div class="dropdown-content">'
+                    + '<a href="../actions/onPost/DeletePost.php?idpost=' + showBookHref + '&pfrom=0">Delete</a><a href="../actions/onPost/editPost.php">Edit</a><a href="../actions/onPost/editPost.php">Signal</a>'
+                    + '</div></div></div></div>'
+                    + '<center>' + titre + '</center>'
                     + '<center>Par ' + auteur + '</center>'
                     + '<center><a href="showBook?id=' + showBookHref + '"><img class="bookImage" src="' + img_link + '"/></a></center>'
-                    + '<p>' + nb_Pages + ' pages</p>'
+                    + '<p>'+ nb_pages + ' pages</p><br/>'
                     + '<div class="buttonLike2" id="' + 'div' + showBookHref + '"><p class="nbLike" id="' + showBookHref + '">' + nb_likes
                     + '</p><img class="buttonLike" src="../images/like.png"></div>'
-                    + '<p>' + date_text_ + '</p>');
+                    + '<p>' + date_text_ + '</p></div>');
 
                     $('#feed').append('<hr/><br/>');
 
                   }else{
 
-                    //Compte personel -> Autoriser les likes
+                    //Compte externe -> Autoriser les likes
                     //Affiche du titre et de l'auteur
-                    $('#feed').append('<div class="sectionb"><center>' + titre + '</center>'
+                    $('#feed').append('<div class="sectionb"><a href="../actions/onPost/DeletePost.php?idpost=' + showBookHref
+                    + '&pfrom=0">Delete</a><a href="../actions/onPost/editPost.php">Edit</a><a href="../actions/onPost/editPost.php">Signal</a>'
+                    + '<center>' + titre + '</center>'
                     + '<center>Par ' + auteur + '</center>'
                     + '<center><a href="showBook?id=' + showBookHref + '"><img class="bookImage" src="' + img_link + '"/></a></center>'
-                    + '<p>' + nb_Pages + ' pages</p>'
+                    + '<p>' + nb_pages + ' pages</p>'
                     + '<div class="buttonLike2" id="' + 'div' + showBookHref + '"><p class="nbLike" id="' + showBookHref + '">' + nb_likes
                     + '</p><img class="buttonLike" onmouseleave="changeLike2(this)" onmouseenter="changeLike(this)" onclick="addLike(' + showBookHref + ',this)" src="../images/like.png"></div>'
                     + '<p>' + date_text_ + '</p>');

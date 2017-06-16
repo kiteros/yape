@@ -47,10 +47,6 @@
 			include('../include/metadata.php');
 			 ?>
        <link rel="stylesheet" href="../style/style.css" />
-<link rel="stylesheet" href="../main/css/style.css" />
-       <link rel="stylesheet" href="../main/css/searchBar.css" />
-       <link href="../main/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-       <link href="../main/color/default.css" rel="stylesheet" type="text/css">
        <link rel="stylesheet" href="../style/stylePerso.css" />
 			 ?>
 	    <title>Yape - My page</title>
@@ -126,7 +122,7 @@
             	));
               $byiddata = $byidp->fetch();
 
-
+              if(strlen($datacom['comment']) > 0){
               ?>
               <center>
                 <div class="comDiv">
@@ -135,19 +131,20 @@
                   <a href="myFeed.php?id=<?php echo $byiddata['id']; ?>"><img class="comme_nt" width="35px" height="35px" src="<?php echo $byiddata['local_profil']; ?>"></a>
                   <h3><?php echo $byiddata['fname']; ?></h3>
 
-                  <p><?php echo$datacom['comment']; ?></p>
+                  <p><?php echo $datacom['comment']; ?></p>
                   <br/>
 
                 </div>
               </center>
               <?php
             }
+            }
 
             ?>
 
             <center><form action="../actions/addComment.php" method="post">
               <textarea name="com" rows="5" cols="100"></textarea><br/>
-              <input type="hidden" name="booklink" value="<?php echo $bbo; ?>" class="button_"/>
+              <input type="hidden" name="booklink" value="<?php echo $bbo; ?>" class="button_"/><br/>
               <input type="submit" value="Comment" class="button_"/>
             </form></center><br/>
 

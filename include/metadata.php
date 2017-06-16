@@ -1,12 +1,6 @@
 <link rel="shortcut icon" href="../images/yape_logo.png"/>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="../paralax/parallax.min.js"></script>
-<script src="../vex-master/dist/js/vex.combined.min.js"></script>
-<script>vex.defaultOptions.className = 'vex-theme-os'</script>
-<link rel="stylesheet" href="../vex-master/dist/css/vex.css" />
-<link rel="stylesheet" href="../vex-master/dist/css/vex-theme-os.css" />
-<link rel="stylesheet" href="../complete/awesomplete.css" />
 <script src="../complete/awesomplete.js" async></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>

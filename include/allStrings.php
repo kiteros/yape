@@ -1,29 +1,6 @@
 <?php
-  $string['FR']['index']['p1'] = 'Yape, le conseiller et manager dont vous avez besoin';
-  $string['EN']['index']['p1'] = 'Yape, the book coach that you always needed';
-
-  $string['FR']['index']['p2'] = 'Vous n\'avez plus la motivation de lire? Vous ne vous vous rappellez plus du livre que vous avez lu il y a un an? Vous voulez exposer vos goûts littéraires à vos amis?
-  Yape est fait pour vous.<br/><br/> C\'est un manager de livres qui se rappelera de toutes vos lectures, et vous aidera à maintenir un niveau de lecture correct. Donnez vous un nombre de page
-  à atteindre au bout du mois. Suivez vos amis et découvrez ce qu\'ils lisent, vous ferez peut-être de bonnes découvertes. Profitez aussi de nos recommendations basées sur vos choix de lecture. Maintenant
-  vous ne serez plus jamais à court de lecture.';
-  $string['EN']['index']['p2'] = 'You have no motivation left to read? You can\'t remember the book you read one year ago? You want to make your friend know which books you read and love?
-  Yape is what you need. <br/><br/>This is a book manager who will remember all your readings, and will help you to maintain a correct reading level. Give it the page number you want to reach at the end of the month.
-  Yape will help you to keep the pace! Follow your friends and discover what they are reading... Maybe you will get surprised. Enjoy our recommendations based on your reading choices. Now you will always have something to read';
-
-  $string['FR']['index']['dayBook'] = 'Livre du jour';
-  $string['EN']['index']['dayBook'] = 'Book of the day';
-
-  $string['FR']['index']['dayReader'] = 'Lecteur du jour';
-  $string['EN']['index']['dayReader'] = 'Reader of the day';
-
-  $string['FR']['index']['dayReaderCongrat1'] = 'Felicitation a ';
-  $string['EN']['index']['dayReaderCongrat1'] = 'Congrats to ';
-
-  $string['FR']['index']['dayReaderCongrat2'] = ' qui a été le lecteur le plus performant de la journée';
-  $string['EN']['index']['dayReaderCongrat2'] = ' who was the most promising reader today';
-
-  $string['FR']['index']['pageNB'] = 'Nombre de pages';
-  $string['EN']['index']['pageNB'] = 'Page Number';
+  $string['FR']['index']['dayReader'] = 'Lecteurs de la semaine';
+  $string['EN']['index']['dayReader'] = 'Readers of the week';
 
   $string['FR']['index']['join'] = 'Rejoignez les';
   $string['EN']['index']['join'] = 'Join the';
@@ -37,4 +14,48 @@
   $string['FR']['index']['signin'] = 'Connexion';
   $string['EN']['index']['signin'] = 'Sign in';
 
+  $string['FR']['index']['placeholder'] = 'Cherchez un livre...';
+  $string['EN']['index']['placeholder'] = 'Search any book...';
+
+  $string['FR']['index']['what'] = 'A quoi ça sert?';
+  $string['EN']['index']['what'] = 'What is the goal?';
+
+  $string['EN']['index']['readsmt'] = 'READ SOMETHING LATELY?';
+  $string['FR']['index']['readsmt'] = 'QU\'AVEZ-VOUS LU RECEMMENT?';
+
+  $string['EN']['index']['q1'] = 'Read';
+  $string['FR']['index']['q1'] = 'Lisez';
+
+  $string['EN']['index']['q1-1'] = 'Access a giant database of books.';
+  $string['FR']['index']['q1-1'] = 'Accédez à une base de données immense';
+
+  $string['EN']['index']['q2'] = 'Remember';
+  $string['FR']['index']['q2'] = 'Gardez en mémoire';
+
+  $string['EN']['index']['q2-1'] = 'Store all the books you ever read';
+  $string['FR']['index']['q2-1'] = 'Stockez tout les livres que vous avez lu';
+
+  $string['EN']['index']['q3'] = 'Share';
+  $string['FR']['index']['q3'] = 'Partagez';
+
+  $string['EN']['index']['q3-1'] = 'Show to your friends the books you read, and maybe you will find what you love...';
+  $string['FR']['index']['q3-1'] = 'Montrez à vos amis les livres que vous avez lus, et peut-être vous trouverez ce que vous aimez...';
+
+  $string['EN']['index']['q4'] = 'Discover';
+  $string['FR']['index']['q4'] = 'Découvrez';
+
+  $string['EN']['index']['q4-1'] = 'Use one of the most advanced search and learning techniques to find the book that perfectly fits you';
+  $string['FR']['index']['q4-1'] = 'Utilisez un des outils de recherche les plus avancés pour trouver le livre qui vous correspond parfaitement';
+
+  $string['EN']['index']['b1'] = 'Book eater';
+  $string['FR']['index']['b1'] = 'Mangeur de livres';
+
+  $string['EN']['index']['b2'] = 'Epic Nerd';
+  $string['FR']['index']['b2'] = 'Nerd ultime';
+
+  $string['EN']['index']['b3'] = 'Letter Master';
+  $string['FR']['index']['b3'] = 'Maître des lettres';
+
+  $string['EN']['index']['b4'] = 'Ink drinker';
+  $string['FR']['index']['b4'] = 'Buveur d\'encre';
  ?>
