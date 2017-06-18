@@ -10,7 +10,7 @@ body{
     height: 100%;
     top: 0;
     left: 0;
-    background: white;
+    background-color: #ffc57a;
     width: 300px;
     padding: 0px;
 
@@ -81,7 +81,7 @@ a.darken:hover img {
   width: 300px; /* optionnel, c'est pour la démo */
   list-style: none; /* supprime les puces de liste */
   padding: 0px; /* on fait un peu de place autour des liens */
-  background: #F2F2F2;
+  background: #ffc57a;
 }
 
 /* styles des liens et éléments de liste */
@@ -97,7 +97,7 @@ a.darken:hover img {
   margin: 1px 0; /* espace les liens d'1 px */
   padding: 8px 20px; /* marges internes pour aérer */
   color: #666;
-  background: #FFF;
+  background: #ffc57a;
   text-decoration: none; /* on vire le soulignement */
 
   /* on définit la transition pour les navigateurs */

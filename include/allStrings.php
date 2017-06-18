@@ -58,4 +58,7 @@
 
   $string['EN']['index']['b4'] = 'Ink drinker';
   $string['FR']['index']['b4'] = 'Buveur d\'encre';
+
+  $string['EN']['myfeed']['pagegraph'] = 'Pages read';
+  $string['FR']['myfeed']['pagegraph'] = 'Pages lues';
  ?>

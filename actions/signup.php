@@ -15,11 +15,12 @@ if(isset($_POST['fname']) AND isset($_POST['email'])){
     $lname_ = stripAccents($_POST['lname']);
 
     //Check no code (eviter que Kilian fasse de la merde)
-    
+
     if (preg_match("#[<>\(\)\[\]\{\}=\\\/]#", $fname_) or preg_match("#[<>\(\)\[\]\{\}=\\\/]#", $email) or preg_match("#[<>\(\)\[\]\{\}=\\\/]#", $lname_))
     {
 
     	header('Location: ../manag/signup.php?er=codeinit');
+      
     }else{
       $addUser = $bdd->prepare('INSERT INTO yape_users (id, email, password, date_, local_profil,bio, fname, lname) VALUES (NULL, :name, :pass, NOW(), :img, :mdt, :fn, :l)');
       $addUser->execute(array(
@@ -60,6 +61,7 @@ if(isset($_POST['fname']) AND isset($_POST['email'])){
       $_SESSION['id'] = $data['id'];
       $_SESSION['profil'] = $data['local_profil'];
       $_SESSION['bigPic'] = $data['local_profil'];
+      $_SESSION['lang'] = $_GET['lang'];
 
       if($_POST['keeplog'] == "k"){
         setcookie('login_name', $email, time() + 365*24*3600, null, null, false, true);

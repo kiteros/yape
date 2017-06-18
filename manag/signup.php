@@ -19,7 +19,7 @@
 			}
 		}
 	 ?>
-	</center><form action="../actions/signup.php" method="post" id="form2" data-parsley-validate="">
+	</center><form action="../actions/signup.php?lang=<?php echo $_GET['lang']; ?>" method="post" id="form2" data-parsley-validate="">
       <ul class="formshape" id="form-style-1">
 				<center><li><img src="../images/yape_logo.png" width="100px" width="100px"><span id="yape_title">Yape - SignUp</span></li></center>
 				<br/>

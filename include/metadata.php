@@ -34,4 +34,5 @@
 if($id == '' and !isset($_GET['stay'])){
 	header('Location: ../manag/signin.php');
 }
+include('allStrings.php');
 ?>

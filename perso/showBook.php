@@ -106,7 +106,10 @@
             }
             echo '<center><p>Nombre de pages : ' . $obj['volumeInfo']['pageCount'] . '</p></center><br/>';
 
-            echo '<center><p>"' . $datab['des'] . '"</p></center>';
+            if($datab['des'] != ''){
+              echo '<center><p>"' . $datab['des'] . '"</p></center>';
+            }
+
             echo '<br/>';
             $bbo = $_GET['id'];
             //Tout les commentaires

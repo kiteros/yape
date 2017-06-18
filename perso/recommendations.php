@@ -49,10 +49,7 @@
 			 ?>
        <link rel="stylesheet" href="../style/style.css" />
        <link rel="stylesheet" href="../style/stylePerso.css" />
-<link rel="stylesheet" href="../main/css/style.css" />
-       <link rel="stylesheet" href="../main/css/searchBar.css" />
-       <link href="../main/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-       <link href="../main/color/default.css" rel="stylesheet" type="text/css">
+
 	    <title>Yape - My page</title>
 	</head>
 
@@ -61,27 +58,8 @@
    ?>
 
    <script>
-
    function showSignIn(){
-     vex.dialog.open({
-         message: 'Enter your username and password to connect:',
-         input: [
-             '<input name="username" type="text" placeholder="Username" required />',
-             '<input name="password" type="password" placeholder="Password" required />'
-         ].join(''),
-         buttons: [
-             $.extend({}, vex.dialog.buttons.YES, { text: 'Sign in' }),
-             $.extend({}, vex.dialog.buttons.NO, { text: 'Back' })
-         ],
-         callback: function (data) {
-             if (!data) {
-                 console.log('Cancelled')
-             } else {
-
-               window.location.replace("../actions/signin.php?name=" + data.username + "&password=" + data.password + "&connectType=notconnected");
-             }
-         }
-     })
+     location.replace("manag/signup.php");
    }
     </script>
 
@@ -104,7 +82,9 @@
         <!-- content -->
         <br/><br/>
         <div id="feed">
-
+          <?php
+          include("../actions/recomend/recommandBooks.php");
+           ?>
         </div>
     </div>
     <a href="#0" class="cd-top">Top</a>

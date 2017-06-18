@@ -17,7 +17,7 @@
 		?>
 		<div id="profilPic">
 	    <p style="display:inline-block;" class="inProfil2"></p>
-	    <img style="display:inline-block;" class="inProfil" width="50px" height="50px" src="<?php echo $_SESSION['profil']; ?>">
+	    <a href="../perso/myFeed.php?id=<?php echo $_SESSION['id']; ?>"><img style="display:inline-block;" class="inProfil" width="50px" height="50px" src="<?php echo $_SESSION['profil']; ?>"></a>
 
 	    <div class="dropdown" style="display:inline-block;" class="inProfil">
 	      <button class="dropbtn"><?php echo $_SESSION['fname']; ?></button>

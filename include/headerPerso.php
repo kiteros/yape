@@ -143,60 +143,71 @@ function ontouch(str){
 
   }
   var element = document.getElementById("hints_float2");
-    if (str.length == 0) {
 
-      element.innerHTML = "<div style=\"display: inline-block;\" id=\"loading2\"><div id=\"back\"></div></div>";
-      element.style.visibility = 'hidden';
-      $("#loading").remove();
-      isLoading = false;
-      return;
-    } else {
+  if (str.length == 0) {
+    $('#hints_float2').empty();
+    $('#hints_float2').append("<div style=\"display: inline-block;\" id=\"loading2\"><div id=\"back\"></div></div>");
+    $('#hints_float2').hide();
+    $("#loading").remove();
+    isLoading = false;
+    return;
 
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-              $("#loading").remove();
-            isLoading = false;
-            document.getElementById("hints_float2").innerHTML = "";
-            document.getElementById("hints_float2").style.visibility = 'visible';
-            var x = 0;
-            var res = this.responseText.split("DEP")[0].split("SEP");
-            var nbPeople = this.responseText.split("XEP")[1];
+  }else{
 
-            $('#hints_float2').append('<div class="whiteSeparator">Books</div>');
-            while(x < 4){
-              var imageMini = document.createElement("img");
-              imageMini.scr = res[3 * x + 2];
-              var li2 = document.createElement("a");
-              li2.href = "../perso/addBook.php?link=" + res[3 * x + 1];
-              var br = document.createElement("br");
-              var text2 = document.createTextNode(res[3 * x]);
-              li2.appendChild(text2);
-              li2.appendChild(imageMini);
-              var element2 = document.getElementById("hints_float2");
-              element2.appendChild(li2);
-              element2.appendChild(br);
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+
+      if (this.readyState == 4 && this.status == 200) {
+
+          $("#loading").remove();
+          isLoading = false;
+          $('#hints_float2').empty();
+          $('#hints_float2').show();
+          var x = 0;
+
+          var myOBJson = JSON.parse(this.responseText);
+          var nbPeople = myOBJson.results;
+
+          $('#hints_float2').append('<div class="whiteSeparator">Books</div>');
+          while(x < 4){
+
+              var titleText = myOBJson.bookResult[x].title;
+              var authorText = myOBJson.bookResult[x].author;
+              var linkText = myOBJson.bookResult[x].link;
+              var thumbSrc = myOBJson.bookResult[x].thumb;
+
+
+              if(authorText == null){
+                authorText = 'unknown';
+              }
+              if(titleText == null){
+                titleText = 'unknown';
+              }
+
+              $("#hints_float2").append('<a href="../perso/addBook.php?link=' + linkText + '">' + titleText + '<br/><span style="color:#ef5f3b;">' + authorText + '</span></a>');
+              $("#hints_float2").append('<br/>');
               x++;
-            }
-            $('#hints_float2').append('<div class="whiteSeparator">People</div>');
-            var res2 = this.responseText.split("DEP")[1].split("SEP");
-            x = 0;
 
-            if(nbPeople >= 4){
-              nbPeople = 4;
-            }
-            while(x < nbPeople){
-              var li3 = document.createElement("a");
-              li3.href = "../perso/myFeed.php?id=" + res2[2 * x + 1];
-              var br = document.createElement("br");
-              var text2 = document.createTextNode(res2[2 * x]);
-              li3.appendChild(text2);
-              var element2 = document.getElementById("hints_float2");
-              element2.appendChild(li3);
-              element2.appendChild(br);
-              x++;
-            }
           }
+
+          $('#hints_float2').append('<div class="whiteSeparator">People</div>');
+
+          x = 0;
+          if(nbPeople >= 4){
+            nbPeople = 4;
+          }
+
+          while(x < nbPeople){
+
+            var idPeople = myOBJson.people[x].id;
+            var namePeople = myOBJson.people[x].firstName;
+
+            $("#hints_float2").append('<a href="../perso/myFeed.php?id=' + idPeople + '">' + namePeople + '</a>');
+            $("#hints_float2").append('<br/>');
+            x++;
+
+          }
+        }
       };
       xmlhttp.open("GET", "../actions/liveSearchAll.php?q=" + str, true);
       xmlhttp.send();

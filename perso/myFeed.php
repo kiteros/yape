@@ -66,6 +66,8 @@
 
               $datafollower = $getFollower->fetch();
               $followerer = $datafollower['follower'];
+              if($fName != '' AND $lName != ''){
+
 
 
               echo '<br/><h2>' . $fName . " " . $lName . '</h2><br/>';
@@ -94,15 +96,15 @@
                     </div>
                     <br/><br/>
                       <div id="ch" class="change">
-                        "<p style="display: inline-block;"><?php
+                        <p style="display: inline-block;"><?php
                         $getBio = $bdd->prepare('SELECT * FROM yape_users WHERE id = :id');
                         $getBio->execute(array(
                           'id' => $id
                         ));
                         $dataBio = $getBio->fetch();
-                        echo $dataBio['bio'];
+                        echo '" ' . $dataBio['bio'] . ' "';
                        ?>
-                     </p>"
+                     </p>
                      <?php
                      if($isPersonal){
                       ?>
@@ -186,6 +188,7 @@
                     </form>
                     <?php
                      }
+
                      //Afficher les charts
 
                      ?>
@@ -194,6 +197,7 @@
                     <canvas id="rightPartCanevas" width="400" height="200"></canvas>
                   </div>
                 </div>
+
                 <script>
 
 
@@ -208,22 +212,19 @@
                   inp.value = "Suivi";
                 }
 
-
-
-
-
-
-
                 </script>
-
           </div>
-
         </div>
         <br/><hr/><br/>
 
         <div id="feed">
 
         </div>
+        <?php
+      }else{
+        echo "<br/><br/><br/><br/><br/><br/><br/><center>Compte inexistant</center>";
+      }
+         ?>
     </div>
     <a href="#0" class="cd-top">Top</a>
     <script src="../js/main.js"></script>
@@ -263,7 +264,7 @@
       labels: ["signup", <?php echo js_array($allDates) ?>],
       datasets: [
           {
-              label: "Page Reading Pace",
+              label: "<?php echo $string[$_SESSION['lang']]['myfeed']['pagegraph']; ?>",
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)'
               ],
@@ -426,15 +427,18 @@
 
                     //Compte externe -> Autoriser les likes
                     //Affiche du titre et de l'auteur
-                    $('#feed').append('<div class="sectionb"><a href="../actions/onPost/DeletePost.php?idpost=' + showBookHref
-                    + '&pfrom=0">Delete</a><a href="../actions/onPost/editPost.php">Edit</a><a href="../actions/onPost/editPost.php">Signal</a>'
+                    $('#feed').append('<div class="sectionb">'
+                    + '<div class="topCont">'
+                    + '<div width="25px" height="25px" class="dropdown" style="display:inline-block; float: right;" class="infeed"><div style="float:right;"><div class="dropdown-content">'
+                    + '<a href="../actions/onPost/DeletePost.php?idpost=' + showBookHref + '&pfrom=0">Delete</a><a href="../actions/onPost/editPost.php">Edit</a><a href="../actions/onPost/editPost.php">Signal</a>'
+                    + '</div></div></div></div>'
                     + '<center>' + titre + '</center>'
                     + '<center>Par ' + auteur + '</center>'
                     + '<center><a href="showBook?id=' + showBookHref + '"><img class="bookImage" src="' + img_link + '"/></a></center>'
-                    + '<p>' + nb_pages + ' pages</p>'
+                    + '<p>'+ nb_pages + ' pages</p><br/>'
                     + '<div class="buttonLike2" id="' + 'div' + showBookHref + '"><p class="nbLike" id="' + showBookHref + '">' + nb_likes
-                    + '</p><img class="buttonLike" onmouseleave="changeLike2(this)" onmouseenter="changeLike(this)" onclick="addLike(' + showBookHref + ',this)" src="../images/like.png"></div>'
-                    + '<p>' + date_text_ + '</p>');
+                    + '</p><img class="buttonLike" onclick="addLike(' + showBookHref + ', this)" onmouseleave="changeLike2(this)" onmouseenter="changeLike(this)"  src="../images/like.png"></div>'
+                    + '<p>' + date_text_ + '</p></div>');
 
                     $('#feed').append('<hr/><br/>');
 

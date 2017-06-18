@@ -1,5 +1,5 @@
 //document.getElementById("hints_float").style.visibility = 'hidden';
-var isLoading = true;
+var isLoading = false;
 function ontouch(str){
   if(!isLoading){
 
@@ -27,10 +27,10 @@ function ontouch(str){
               isLoading = false;
               $("#back").empty();
               $("#back").show();
+
               var x = 0;
               var myOBJson = JSON.parse(this.responseText);
               var nbPeople = myOBJson.results;
-              var Size = 5;
 
               $('#back').append('<div class="whiteSeparator">Books</div>');
               while(x < 4){
@@ -40,13 +40,21 @@ function ontouch(str){
                 var linkText = myOBJson.bookResult[x].link;
                 var thumbSrc = myOBJson.bookResult[x].thumb;
 
-                $("#back").append('<a href="../perso/addBook.php?stay=ok&link="' + linkText + '>' + titleText + '<br/><span style="color:blue;">' + authorText + '</span></a>');
+
+                if(authorText == null){
+                  authorText = 'unknown';
+                }
+                if(titleText == null){
+                  titleText = 'unknown';
+                }
+
+                $("#back").append('<a href="../perso/addBook.php?stay=ok&link=' + linkText + '">' + titleText + '<br/><span style="color:#6d1c07;">' + authorText + '</span></a>');
                 $("#back").append('<br/>');
                 x++;
 
               }
               $('#back').append('<div class="whiteSeparator">People</div>');
-              //var res2 = this.responseText.split("DEP")[1].split("SEP");
+
               x = 0;
 
               if(nbPeople >= 4){

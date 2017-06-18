@@ -68,11 +68,11 @@
   <script>
 
     function showSignUp(){
-      location.replace("../manag/signup.php");
+      location.replace("../manag/signup.php?lang=<?php echo $_GET['lang']; ?>");
     }
 
     function showSignIn(error){
-      location.replace("../manag/signin.php");
+      location.replace("../manag/signin.php?lang=<?php echo $_GET['lang']; ?>");
     }
 
     function showError(){

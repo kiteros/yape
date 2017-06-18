@@ -5,12 +5,7 @@ $obj = json_decode($html, true);
 //output the response
 include('../include/bdd.php');
 function getMaxCara($str){
-  $nbCarac = strlen($str);
-  if($nbCarac > 25){
-    return substr($str, 0, 25) . "...";
-  }else{
-    return $str;
-  }
+  return explode(",",$str)[0];
 }
 
 $x = 0;
