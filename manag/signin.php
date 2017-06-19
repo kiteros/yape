@@ -1,3 +1,16 @@
+<?php
+
+if(isset($_COOKIE['login_name']) AND isset($_COOKIE['login_pass'])){
+  //login
+  session_start();
+  $_SESSION['login_name'] = $_COOKIE['login_name'];
+  $_SESSION['login_pass'] = $_COOKIE['login_pass'];
+  header("Location: ../actions/autosignin.php?lang=" . $_GET['lang']);
+
+}
+
+?>
+
 <!DOCTYPE html>
 
 <html>

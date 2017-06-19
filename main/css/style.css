@@ -306,7 +306,7 @@ hr {
 	position:relative;
 
 	background: url(../img/book.jpg) no-repeat top center;
-  background-size: cover; 
+  background-size: cover;
 }
 
 #intro.intro {
@@ -790,4 +790,68 @@ Parallax
 		font-size: 20px;
 	}
 
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    padding-right : 25px;
+    padding-left : 25px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+
+}
+
+/* Dropdown Button */
+.dropbtn2 {
+    background-color: transparent;
+    background: url(../images/scrolld.png) no-repeat center;
+    color: white;
+    padding: 15px;
+    padding-right : 15px;
+    padding-left : 15px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
 }

@@ -8,14 +8,7 @@
      return substr($inthat, strpos($inthat,$this)+strlen($this));
  };
 
- if(isset($_COOKIE['login_name']) AND isset($_COOKIE['login_pass'])){
-	 //login
-   echo 'done';
-   $_SESSION['login_name'] = $_COOKIE['login_name'];
-   $_SESSION['login_pass'] = $_COOKIE['login_pass'];
-	 header("Location: ../actions/autosignin.php");
 
- }
  include('../include/allStrings.php');
  ?>
 
@@ -56,12 +49,24 @@
         </a>
       </div>
 
+      <?php
+        if(isset($_SESSION['id'])){
+          ?>
+          <div class="collapse navbar-collapse navbar-right navbar-main-collapse" style="margin-right=50px;">
+            <a href="../perso/myFeed.php?id=<?php echo $_SESSION['id']; ?>"><img style="display:inline-block;" class="inProfil" width="50px" height="50px" src="<?php echo $_SESSION['profil']; ?>"></a>
+          </div>
+          <?php
+        }else{
+       ?>
       <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
         <ul class="nav navbar-nav">
           <li class="active"><a onclick="showSignIn()"><?php echo $string[$_GET['lang']]['index']['signin']; ?></a></li>
           <li><a onclick="showSignUp()"><?php echo $string[$_GET['lang']]['index']['signup']; ?></a></li>
         </ul>
       </div>
+      <?php
+      }
+       ?>
     </div>
   </nav>
 

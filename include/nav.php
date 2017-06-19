@@ -1,8 +1,12 @@
+<?php
+  session_start();
+ ?>
+
 <link href="../style/includeStyle/navSt.css" rel="stylesheet">
 
 <div class="side">
   <center><div id="logo">
-    <a href="http://yapeone.com/"><img src="../images/yape_logo.png" width="65px" height="65px" style="margin-left: 30px;"/></a>
+    <a href="http://yapeone.com/main/index.php?lang=<?php echo $_SESSION['lang']; ?>"><img src="../images/yape_logo.png" width="65px" height="65px" style="margin-left: 30px;"/></a>
   </div></center>
 
 	<?php
@@ -43,13 +47,11 @@
   <div id="hints_float2">
   </div>
 
-
   <div>
-
 	  <ul class="menu-vertical">
-	    <li class="mv-item"><a href="main.php">Actualités</a></li>
-	    <li class="mv-item"><a href="myFeed.php">Mon activité</a></li>
-	    <li class="mv-item"><a href="recommendations.php">Recommendations</a></li>
+	    <li class="mv-item"><a href="main.php">Actualités<img width="20px" height="20px" src="../images/act.svg" style="float: right;margin-bottom:4px;"></a></li>
+	    <li class="mv-item"><a href="myFeed.php">Mon activité<img width="20px" height="20px" src="../images/news.svg" style="float: right;margin-bottom:4px;"></a></li>
+	    <li class="mv-item"><a href="recommendations.php">Recommendations<img width="20px" height="20px" src="../images/book.svg" style="float: right;margin-bottom:4px;"></a></li>
 	  </ul>
 	</div>
 

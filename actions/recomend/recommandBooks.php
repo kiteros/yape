@@ -9,6 +9,8 @@ $up->execute(array(
 $x = 0;
 $counter = 0;
 $stack = array();
+$stack3 = array();
+$stack4 = array();
 $stacknb = array();
 while($data = $up->fetch()){
 
@@ -25,6 +27,8 @@ while($data = $up->fetch()){
      $max = 10;
      for ($i = 0;$i < $max; $i++) {
         array_push($stack, $obj2['items'][$i]['volumeInfo']['title']);
+        array_push($stack4, $obj2['items'][$i]['selfLink']);
+        array_push($stack3, $obj2['items'][$i]['volumeInfo']['imageLinks']['thumbnail']);
         //echo $obj2['items'][$i]['volumeInfo']['title'] . '<br/>';
         $counter++;
      }
@@ -45,8 +49,13 @@ while($j < 10) {
        $j++;
    }
 }
+$nbx = 0;
 foreach ($stacknb as &$value) {
-    echo $stack[$value] . '<br/>';
+  $json->book[$nbx]->title = $stack[$value];
+  $json->book[$nbx]->image = $stack3[$value];
+  $json->book[$nbx]->link = $stack4[$value];
+  $nbx++;
 }
+echo(json_encode($json));
 
  ?>

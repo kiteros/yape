@@ -38,6 +38,7 @@ if((isset($_POST['email']) AND isset($_POST['password'])) OR (isset($_SESSION['l
       $_SESSION['bigPic'] = '../images/bigPic/' . after('../images/thumbnails/', $data['local_profil']);
       $_SESSION['fname'] = $data['fname'];
       $_SESSION['lname'] = $data['lname'];
+      $_SESSION['lang'] = $_GET['get'];
       //Créer le cookie
       if(isset($_POST['keeplog'])){
         if($_POST['keeplog'] == "k"){

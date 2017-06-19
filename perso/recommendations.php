@@ -82,9 +82,27 @@
         <!-- content -->
         <br/><br/>
         <div id="feed">
-          <?php
-          include("../actions/recomend/recommandBooks.php");
-           ?>
+           <script>
+           $('#feed').append('<div id="loading"><center><img width="30px" height="30px" src="../images/Loading_icon.gif" /></center></div>');
+           var xmlhttp = new XMLHttpRequest();
+           xmlhttp.onreadystatechange = function() {
+             if (this.readyState == 4 && this.status == 200) {
+               $('#loading').remove();
+               var myOBJson = JSON.parse(this.responseText);
+               for(var i = 0; i < 10; i++){
+
+                 if(myOBJson.book[i].image != null && myOBJson.book[i].title != null){
+                   $('#feed').append('<center><a href="../../perso/addBook.php?stay=ok&link=' + myOBJson.book[i].link + '" style="text-decoration: none;color:#82331d;"><div><img src="' + myOBJson.book[i].image + '"><p>' + myOBJson.book[i].title + '</p></div></a></center><br/><br/>');
+                 }
+
+
+               }
+             }
+           };
+           xmlhttp.open("GET", "../actions/recomend/recommandBooks.php", true);
+           xmlhttp.send();
+
+           </script>
         </div>
     </div>
     <a href="#0" class="cd-top">Top</a>
