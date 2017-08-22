@@ -13,8 +13,14 @@ if((isset($_POST['email']) AND isset($_POST['password'])) OR (isset($_SESSION['l
   }else{
 
     if(isset($_POST['email']) AND !isset($_SESSION['login_pass'])){
-      $email = $_POST['email'];
-      $password = sha1($_POST['password']);
+      if($_GET['c'] == 'fb'){
+        $email = $_SESSION['EMAIL'];
+        $password = $_SESSION['FBID'];
+      }else{
+        $email = $_POST['email'];
+        $password = sha1($_POST['password']);
+      }
+
     }else{
       $email = $_SESSION['login_name'];
       $password = $_SESSION['login_pass'];
@@ -49,10 +55,10 @@ if((isset($_POST['email']) AND isset($_POST['password'])) OR (isset($_SESSION['l
       }
 
 
-      header('Location: ../perso/main.php');
+      header('Location: ../perso/');
       exit();
     }else{
-      header('Location: ../index.php?error=notinbdd');
+      header('Location: ../manag/signin.php?error=notinbdd');
       exit();
     }
   }

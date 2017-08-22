@@ -4,15 +4,23 @@ function stripAccents($stripAccents){
 }
 include("../include/bdd.php");
 
-if(isset($_POST['fname']) AND isset($_POST['email'])){
+if((isset($_POST['fname']) AND isset($_POST['email'])) OR (isset($_SESSION['EMAIL']))){
   if($_POST['password1'] != $_POST['password2']){
     header('Location: ../manag/signup.php?er=passnotsame');
     exit();
   }else{
-    $email = $_POST['email'];
-    $password = sha1($_POST['password1']);
-    $fname_ = stripAccents($_POST['fname']);
-    $lname_ = stripAccents($_POST['lname']);
+    if($_GET['c'] == 'fb'){
+      $email = $_SESSION['EMAIL'];
+      $password = $_SESSION['FBID'];
+      $fname_ = explode(" ", $_SESSION['FULLNAME'])[0];
+      $lname_ = explode(" ", $_SESSION['FULLNAME'])[1];
+    }else{
+      $email = $_POST['email'];
+      $password = sha1($_POST['password1']);
+      $fname_ = stripAccents($_POST['fname']);
+      $lname_ = stripAccents($_POST['lname']);
+    }
+
 
     //Check no code (eviter que Kilian fasse de la merde)
 
@@ -20,7 +28,7 @@ if(isset($_POST['fname']) AND isset($_POST['email'])){
     {
 
     	header('Location: ../manag/signup.php?er=codeinit');
-      
+
     }else{
       $addUser = $bdd->prepare('INSERT INTO yape_users (id, email, password, date_, local_profil,bio, fname, lname) VALUES (NULL, :name, :pass, NOW(), :img, :mdt, :fn, :l)');
       $addUser->execute(array(
@@ -70,7 +78,7 @@ if(isset($_POST['fname']) AND isset($_POST['email'])){
 
 
 
-      header('Location: ../perso/main.php');
+      header('Location: ../perso/');
 
     }
 

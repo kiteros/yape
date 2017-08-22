@@ -25,7 +25,7 @@ if(isset($_COOKIE['login_name']) AND isset($_COOKIE['login_pass'])){
   <body>
 	</center><form action="../actions/signin.php?lang=<?php echo $_GET['lang']; ?>" method="post" id="form2" data-parsley-validate="">
       <ul class="formshape" id="form-style-1">
-				<center><li><img src="../images/yape_logo.png" width="100px" width="100px"><span id="yape_title">Yape - Login</span></li></center>
+				<center><li><img src="../images/liberatur_logo.PNG" width="100px" width="100px"><span id="yape_title">Liberatur - Login</span></li></center>
 				<br/>
         <li>
 
@@ -38,6 +38,10 @@ if(isset($_COOKIE['login_name']) AND isset($_COOKIE['login_pass'])){
         </li>
 				<li>
             <label><input name="keeplog" type="checkbox" value="k">Keep me Logged in</label>
+        </li>
+        <li>
+          <div>
+                <a class="loginBtn loginBtn--facebook" href="../1353/fbconfig.php">Login with Facebook</a></div>
         </li>
         <li>
             <p><input type="submit" value="Se connecter" /><a href="signup.php" id="creerCompte">Creer un compte</a></p>

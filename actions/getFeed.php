@@ -16,7 +16,7 @@ while($dataFriend = $getFriend->fetch()){
 }
 $str .= ')';
 
-$increm = $min + 5;
+$increm = $min + 6;
 $selectFeed = $bdd->prepare('SELECT * FROM yape_books WHERE user_id_from IN ' . $str . '  ORDER BY id DESC LIMIT ' . $min . ', ' . $increm . '');
 $selectFeed->execute(array(
 
@@ -24,8 +24,20 @@ $selectFeed->execute(array(
 
 $StringReturn = '';
 $taille = $selectFeed->rowCount();
+$y = 0;
 
 while($data = $selectFeed->fetch()){
+
+  $json->post[$y]->book_id = $data['book_id'];
+  $json->post[$y]->date = $data['date_'];
+  $json->post[$y]->idImage = $data['image_id'];
+  $json->post[$y]->nb_like = $data['nb_like'];
+  $json->post[$y]->nb_comment = $data['nb_comment'];
+  $json->post[$y]->title = $data['title'];
+  $json->post[$y]->auteur = $data['auteur'];
+  $json->post[$y]->pages = $data['pages'];
+  $json->post[$y]->id = $data['id'];
+
   $StringReturn .= $data['book_id'] . 'SEP' . $data['date_'] . 'SEP' . $data['image_id'] . 'SEP' . $data['nb_like'] . 'SEP' . $data['nb_comment'] . 'SEP';
   $StringReturn .= $data['title'] . 'SEP' . $data['auteur'] . 'SEP' . $data['id'] . 'SEP' . $data['pages'] . 'SEP';
   $selectLecteur = $bdd->prepare('SELECT * FROM yape_users WHERE id = :myId');
@@ -50,12 +62,17 @@ while($data = $selectFeed->fetch()){
       }
     }
   }
-
   $StringReturn .= $nameLecteur . 'SEP' . $isLikedBy . 'SEP' . $dataLecteur['local_profil'] . 'SEP' . $dataLecteur['id'] . 'SEP';
+  $json->post[$y]->nameReader = $nameLecteur;
+  $json->post[$y]->likedBy = $isLikedBy;
+  $json->post[$y]->local_profil = $dataLecteur['local_profil'];
+  $json->post[$y]->idReader = $dataLecteur['id'];
+  $y++;
 }
 
 if($taille > 0){
-  echo $taille . 'DEP' . $StringReturn;
+  $json->size = $taille;
+  echo json_encode($json);
 }else{
   echo 'end';
 }

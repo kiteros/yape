@@ -49,7 +49,7 @@ if((isset($_POST['email']) AND isset($_POST['password'])) OR (isset($_SESSION['l
       }
 
 
-      header('Location: ../perso/main.php');
+      header('Location: ../perso/');
       exit();
     }else{
       header('Location: ../index.php?error=notinbdd');

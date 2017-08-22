@@ -1,0 +1,57 @@
+#left{
+  margin-left : 100px;
+}
+
+#leftPart2{
+  position: relative;
+}
+
+#leftContainer{
+  width : 100%;
+  display : flex;
+  justify-content: space-between;
+}
+
+#leftPart{
+  display: inline-block;
+}
+
+#booksPorgression{
+  display: inline-block;
+  vertical-align: top;
+  margin-right : 75px;
+  width : 700px;
+  height : 500px;
+}
+
+a.darken {
+  border-radius: 50%;
+    display: inline-block;
+    background: black;
+    border : none;
+    border-radius: 50%;
+    padding: 0;
+}
+
+a.darken img {
+    display: block;
+
+    -webkit-transition: all 0.5s linear;
+       -moz-transition: all 0.5s linear;
+        -ms-transition: all 0.5s linear;
+         -o-transition: all 0.5s linear;
+            transition: all 0.5s linear;
+}
+
+a.darken:hover img {
+    opacity: 0.7;
+
+}
+
+#changepix{
+  position: absolute;
+  color : white;
+  top: 75px;
+  left: 15px;
+  width: 100%;
+}
