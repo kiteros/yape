@@ -1,24 +1,29 @@
 <?php
+session_start();
 function stripAccents($stripAccents){
   return strtr($stripAccents,'àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ','aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
 }
 include("../include/bdd.php");
 
-if((isset($_POST['fname']) AND isset($_POST['email'])) OR (isset($_SESSION['EMAIL']))){
+if(isset($_POST['fname']) OR isset($_POST['email']) OR isset($_SESSION['FBID'])){
   if($_POST['password1'] != $_POST['password2']){
     header('Location: ../manag/signup.php?er=passnotsame');
     exit();
   }else{
-    if($_GET['c'] == 'fb'){
-      $email = $_SESSION['EMAIL'];
+    if(isset($_GET['c']) AND $_GET['c'] == 'fb'){
+
       $password = $_SESSION['FBID'];
       $fname_ = explode(" ", $_SESSION['FULLNAME'])[0];
       $lname_ = explode(" ", $_SESSION['FULLNAME'])[1];
+      $email = $fname_;
+      $img = $_SESSION['pic'];
+      //echo $img;
     }else{
       $email = $_POST['email'];
       $password = sha1($_POST['password1']);
       $fname_ = stripAccents($_POST['fname']);
       $lname_ = stripAccents($_POST['lname']);
+      $img = '../images/user.png';
     }
 
 
@@ -34,7 +39,7 @@ if((isset($_POST['fname']) AND isset($_POST['email'])) OR (isset($_SESSION['EMAI
       $addUser->execute(array(
     		'name' => $email,
         'pass' => $password,
-        'img' => '../images/user.png',
+        'img' => $img,
         'mdt' => 'Hey! I am using Yape!',
         'fn' => $fname_,
         'l' => $lname_

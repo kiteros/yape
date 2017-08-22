@@ -24,22 +24,24 @@ try {
 } catch( Exception $ex ) {
   // When validation fails or other local issues
 }
-// see if we have a sessions
+// see if we have a session
 if ( isset( $session ) ) {
   // graph api request for user data
-  $request = new FacebookRequest( $session, 'GET', '/me' );
+  $request = new FacebookRequest( $session, 'GET', '/me?locale=en_US&fields=name,picture.height(961)' );
   $response = $request->execute();
   // get response
   $graphObject = $response->getGraphObject();
-     	$fbid = $graphObject->getProperty('id');              // To Get Facebook ID
+  $data = $graphObject->asArray();
+     $fbid = $graphObject->getProperty('id');              // To Get Facebook ID
  	    $fbfullname = $graphObject->getProperty('name'); // To Get Facebook full name
-	    $femail = $graphObject->getProperty('email');    // To Get Facebook email ID
+	        // To Get Facebook email ID*/
 	/* ---- Session Variables -----*/
 	    $_SESSION['FBID'] = $fbid;
         $_SESSION['FULLNAME'] = $fbfullname;
-	    $_SESSION['EMAIL'] =  $femail;
+	    $_SESSION['pic'] =  json_decode(json_encode($data['picture']), True)['data']['url'];
     /* ---- header location after session ----*/
-  header("Location: ../actions/signin.php?c=fb");
+
+  header("Location: ../actions/signup.php?c=fb");
 } else {
   $loginUrl = $helper->getLoginUrl();
  header("Location: ".$loginUrl);

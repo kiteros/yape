@@ -36,12 +36,10 @@ if(isset($_COOKIE['login_name']) AND isset($_COOKIE['login_pass'])){
 
             <input type="password" name="password" class="field-long" placeholder="Password" required=""/>
         </li>
-				<li>
-            <label><input name="keeplog" type="checkbox" value="k">Keep me Logged in</label>
-        </li>
         <li>
           <div>
-                <a class="loginBtn loginBtn--facebook" href="../1353/fbconfig.php">Login with Facebook</a></div>
+                <a class="loginBtn loginBtn--facebook" href="../1353_log/fbconfig.php">Login with Facebook</a>
+                <label><input name="keeplog" type="checkbox" value="k">Keep me Logged in</label></div>
         </li>
         <li>
             <p><input type="submit" value="Se connecter" /><a href="signup.php" id="creerCompte">Creer un compte</a></p>

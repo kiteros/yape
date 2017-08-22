@@ -30,7 +30,13 @@
     if($thumb == '../images/user.png'){
       $bigPic = $thumb;
     }else{
-      $bigPic = '../images/bigPic/' . after('../images/thumbnails/', $donnesUser['local_profil']);
+      //echo $donnesUser['local_profil'];
+      if(0 === strpos($donnesUser['local_profil'], 'http')){
+        $bigPic = $donnesUser['local_profil'];
+      }else{
+        $bigPic = '../images/bigPic/' . after('../images/thumbnails/', $donnesUser['local_profil']);
+      }
+
     }
 
 
